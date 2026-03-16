@@ -17,7 +17,10 @@ The unified theme isn't a migration target. It's the egg the whole thing hatched
 ## 🪺 Nesting
 
 ```bash
-npm install @chickadee/elements
+git clone https://github.com/bennypowers/chickadee.git
+cd chickadee
+npm ci
+npm start
 ```
 
 ## 🐣 Hatching Your First Component
@@ -55,68 +58,9 @@ No need to migrate from one bird's token taxonomy to another — these are the c
 
 ## 🔭 Development
 
-### 🪹 Prerequisites
-
-Chickadee needs two CLI tools on your `PATH` that aren't npm packages:
-
-| Tool | What it does | Install |
-|------|-------------|---------|
-| [`cem`][cem] | Manifest generation, dev server, tooling | `go install bennypowers.dev/cem@latest` or grab a [release binary][cem-releases] |
-| [`asimonim`][asimonim] | Design token validation and conversion | `go install bennypowers.dev/asimonim@latest` or grab a [release binary][asimonim-releases] |
-
-Both are single-binary Go tools — no runtime dependencies, no node_modules weight. Just birds that travel light.
-
 ### 🐥 Getting Started
 
-```bash
-# Install npm dependencies
-npm install
-
-# Build tokens + manifest in one swoop
-npm run build
-
-# Start the dev server with live reload
-npm start
-```
-
-Open [http://localhost:8000][localhost] to see your elements in flight.
-
-Or run steps individually:
-
-```bash
-# Generate DTCG JSON from YAML token sources
-npm run build:tokens
-
-# Generate the custom elements manifest
-npm run build:manifest
-```
-
-### 🪶 Project Structure
-
-```
-tokens/
-  color/
-    crayon/
-      blue.yaml               # Base color palettes (YAML source)
-      gray.yaml
-      ...
-  border.yaml                 # Border radii and widths
-  font.yaml                   # Typography tokens
-  space.yaml                  # Spacing scale
-  size.yaml                   # Icon sizes
-  chickadee.tokens.json       # Generated (untracked)
-elements/
-  chickadee-button/
-    chickadee-button.ts       # Element source
-    chickadee-button.css      # Shadow DOM styles
-    demo/
-      index.html              # Default demo (minimal)
-      variants.html           # All variant plumage
-      compact.html            # Compact sizing
-      icon.html               # With slotted icons
-  chickadee-icon-button/
-    ...
-```
+Install as above, and open [http://localhost:8000][localhost] to see your elements in flight.
 
 ### 🥚 Adding a New Element
 
