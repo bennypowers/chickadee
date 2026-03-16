@@ -1,0 +1,86 @@
+:host {
+  /**
+   * Content area size. Computed from `--chickadee-font-size-body-text-sm` and
+   * `--chickadee-font-line-height-body-text` design tokens. Override to set a
+   * fixed icon hit area.
+   */
+  --_size:
+    var(--chickadee-icon-button-size,
+      calc(
+        var(--chickadee-font-size-body-text-sm, 14px)
+        * var(--chickadee-font-line-height-body-text, 1.5)
+      )
+    );
+
+  /**
+   * Padding around the icon. Maps to the `--chickadee-space-md` design token.
+   * Reduced automatically when the `compact` attribute is set.
+   */
+  --_padding: var(--chickadee-icon-button-padding, var(--chickadee-space-md, 8px));
+
+  /**
+   * Overrides the icon color. When unset, resolves from the
+   * `--chickadee-color-icon-secondary` design token.
+   */
+  --_color:
+    var(--chickadee-icon-button-color,
+      var(--chickadee-color-icon-secondary, light-dark(#1f1f1f, white)));
+  --_background: transparent;
+  --_border-radius: var(--chickadee-border-radius-pill, 64px);
+  --_focus-ring-width: var(--chickadee-border-width-lg, 3px);
+  --_focus-ring-color: var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
+
+  display: inline-block;
+}
+
+:host([compact]) {
+  --_padding: var(--chickadee-space-sm, 6px);
+}
+
+:host([disabled]) {
+  pointer-events: none;
+}
+
+button {
+  all: unset;
+  box-sizing: content-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--_size);
+  height: var(--_size);
+  padding: var(--_padding);
+  border-radius: var(--_border-radius);
+  color: var(--_color);
+  background: var(--_background);
+  cursor: pointer;
+  transition:
+    background 150ms ease,
+    color 150ms ease;
+}
+
+button:hover,
+button:focus-visible {
+  --_background: var(--chickadee-color-interactive-fill-plain-hover, light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15)));
+}
+
+button:active {
+  --_background: var(--chickadee-color-interactive-fill-plain-active, light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15)));
+}
+
+button:focus-visible {
+  outline: var(--_focus-ring-width) solid var(--_focus-ring-color);
+  outline-offset: var(--_focus-ring-width);
+}
+
+:host([disabled]) button {
+  cursor: not-allowed;
+  --_color: var(--chickadee-color-text-status-disabled, light-dark(#a3a3a3, #707070));
+  --_background: transparent;
+}
+
+::slotted(*) {
+  display: inline-flex;
+  width: var(--chickadee-size-icon-sm, 14px);
+  height: var(--chickadee-size-icon-sm, 14px);
+}
