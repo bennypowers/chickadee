@@ -1,18 +1,5 @@
 :host {
   /**
-   * Content area size. Computed from `--chickadee-font-size-body-text-sm` and
-   * `--chickadee-font-line-height-body-text` design tokens. Override to set a
-   * fixed icon hit area.
-   */
-  --_size:
-    var(--chickadee-icon-button-size,
-      calc(
-        var(--chickadee-font-size-body-text-sm, 14px)
-        * var(--chickadee-font-line-height-body-text, 1.5)
-      )
-    );
-
-  /**
    * Padding around the icon. Maps to the `--chickadee-space-md` design token.
    * Reduced automatically when the `compact` attribute is set.
    */
@@ -43,12 +30,10 @@
 
 button {
   all: unset;
-  box-sizing: content-box;
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: var(--_size);
-  height: var(--_size);
   padding: var(--_padding);
   border-radius: var(--_border-radius);
   color: var(--_color);
@@ -80,7 +65,7 @@ button:focus-visible {
 }
 
 ::slotted(*) {
-  display: inline-flex;
+  display: block;
   width: var(--chickadee-size-icon-sm, 14px);
   height: var(--chickadee-size-icon-sm, 14px);
 }
