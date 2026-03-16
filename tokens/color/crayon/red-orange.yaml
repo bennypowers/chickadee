@@ -1,0 +1,34 @@
+color:
+  $type: color
+  red-orange:
+    "20":
+      $value: "#fbbea8"
+      $description: >-
+        Lightest red-orange. Should be used for danger text hover states on
+        dark themes.
+    "30":
+      $value: "#f89b78"
+      $description: >-
+        Light red-orange. Should be used for danger text default state on dark
+        themes.
+    "40":
+      $value: "#f4784a"
+      $description: >-
+        Medium red-orange. Should be used for danger hover and focus states on
+        dark themes. Recommended for danger icon hover on dark surfaces.
+    "50":
+      $value: "#f0561d"
+      $description: >-
+        Primary red-orange. Should be used as the default danger status color
+        on dark themes. Recommended for danger buttons on dark surfaces.
+    "60":
+      $value: "#b1380b"
+      $description: >-
+        Dark red-orange. Should be used as the default danger status color on
+        light themes. Recommended for danger buttons and danger text on light
+        surfaces.
+    "70":
+      $value: "#731f00"
+      $description: >-
+        Darkest red-orange. Should be used for danger hover and active states
+        on light themes.

@@ -1,0 +1,43 @@
+border:
+  radius:
+    $type: dimension
+    default:
+      $value: 16px
+      $description: >-
+        Applies a 16px border radius to at least 1 corner of a container. This
+        shall be the default for all containers needing rounded corners. It
+        should be used to soften a container's visual footprint. Recommended
+        for elements like Card or Dialog. It must be applied to all 4 corners
+        of a container at once.
+    pill:
+      $value: 64px
+      $description: >-
+        Applies a 64px border radius to at least 1 corner of a container. It
+        should be used for elements needing a circle or pill-shaped background
+        like Button, Badge, or Switch. Applying to all 4 corners at once is
+        optional.
+
+  width:
+    $type: dimension
+    sm:
+      $value: 1px
+      $description: >-
+        Applies a 1px border width to at least 1 side of a container. This
+        shall be the default width for all borders and lines. It should be used
+        to establish baseline thickness or visual separation. Recommended for
+        elements like secondary Button, Card, or input fields. It must not be
+        used for strong directional emphasis like indicating a selected state.
+    md:
+      $value: 2px
+      $description: >-
+        Applies a 2px border width to at least 1 side of a container. It should
+        be used to add emphasis or visual separation beyond a 1px border. It
+        must be used to ensure hover, focus, and active states are discernible
+        by more than color alone per WCAG.
+    lg:
+      $value: 3px
+      $description: >-
+        Applies a 3px border width. It should be used for focus indicator
+        borders per WCAG and for strong directional emphasis like indicating a
+        selected or expanded state. Recommended for focus rings on interactive
+        elements.

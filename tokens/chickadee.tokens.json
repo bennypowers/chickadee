@@ -1,0 +1,418 @@
+{
+  "border": {
+    "radius": {
+      "default": {
+        "$description": "Applies a 16px border radius to at least 1 corner of a container. This shall be the default for all containers needing rounded corners. It should be used to soften a container's visual footprint. Recommended for elements like Card or Dialog. It must be applied to all 4 corners of a container at once.",
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "pill": {
+        "$description": "Applies a 64px border radius to at least 1 corner of a container. It should be used for elements needing a circle or pill-shaped background like Button, Badge, or Switch. Applying to all 4 corners at once is optional.",
+        "$type": "dimension",
+        "$value": "64px"
+      }
+    },
+    "width": {
+      "lg": {
+        "$description": "Applies a 3px border width. It should be used for focus indicator borders per WCAG and for strong directional emphasis like indicating a selected or expanded state. Recommended for focus rings on interactive elements.",
+        "$type": "dimension",
+        "$value": "3px"
+      },
+      "md": {
+        "$description": "Applies a 2px border width to at least 1 side of a container. It should be used to add emphasis or visual separation beyond a 1px border. It must be used to ensure hover, focus, and active states are discernible by more than color alone per WCAG.",
+        "$type": "dimension",
+        "$value": "2px"
+      },
+      "sm": {
+        "$description": "Applies a 1px border width to at least 1 side of a container. This shall be the default width for all borders and lines. It should be used to establish baseline thickness or visual separation. Recommended for elements like secondary Button, Card, or input fields. It must not be used for strong directional emphasis like indicating a selected state.",
+        "$type": "dimension",
+        "$value": "1px"
+      }
+    }
+  },
+  "color": {
+    "blue": {
+      "10": {
+        "$description": "Lightest blue. Should be used for interactive text and icon hover states on dark themes.",
+        "$type": "color",
+        "$value": "#e0f0ff"
+      },
+      "20": {
+        "$description": "Light blue. Should be used for interactive primary hover and active states on dark themes, and for secondary button border hover on dark themes.",
+        "$type": "color",
+        "$value": "#b9dafc"
+      },
+      "30": {
+        "$description": "Medium-light blue. Should be used as the default interactive primary color on dark themes. Recommended for primary buttons and link text on dark surfaces.",
+        "$type": "color",
+        "$value": "#92c5f9"
+      },
+      "40": {
+        "$description": "Medium blue. Should be used for tertiary button border hover on light themes.",
+        "$type": "color",
+        "$value": "#4394e5"
+      },
+      "50": {
+        "$description": "Primary blue. Should be used as the default interactive primary color on light themes. Recommended for primary buttons, link text, and focus indicators on light surfaces.",
+        "$type": "color",
+        "$value": "#0066cc"
+      },
+      "60": {
+        "$description": "Dark blue. Should be used for interactive primary hover, focus, and active states on light themes.",
+        "$type": "color",
+        "$value": "#004d99"
+      },
+      "70": {
+        "$description": "Darkest blue. Should be used for spinner and progress track backgrounds on dark themes.",
+        "$type": "color",
+        "$value": "#003366"
+      }
+    },
+    "border-interactive": {
+      "subtle": {
+        "active": {
+          "$description": "Active state for subtle interactive borders. Blue-50 on light, blue-20 on dark.",
+          "$type": "color",
+          "$value": "light-dark(#0066cc, #b9dafc)"
+        },
+        "default": {
+          "$description": "Default subtle interactive border. Used for tertiary button borders. Gray-30 on light, gray-50 on dark.",
+          "$type": "color",
+          "$value": "light-dark(#c7c7c7, #707070)"
+        },
+        "focus": {
+          "$description": "Focus state for subtle interactive borders. Blue-40 on light, blue-30 on dark.",
+          "$type": "color",
+          "$value": "light-dark(#4394e5, #92c5f9)"
+        },
+        "hover": {
+          "$description": "Hover state for subtle interactive borders. Blue-40 on light, blue-30 on dark.",
+          "$type": "color",
+          "$value": "light-dark(#4394e5, #92c5f9)"
+        }
+      }
+    },
+    "gray": {
+      "10": {
+        "$description": "Lightest neutral surface. Should be used for subtle background differentiation on light themes. Recommended for elements like disabled button fills or secondary surface backgrounds.",
+        "$type": "color",
+        "$value": "#f2f2f2"
+      },
+      "20": {
+        "$description": "Light neutral border and track color. Should be used for spinner tracks, subtle dividers, and disabled button fills on light themes.",
+        "$type": "color",
+        "$value": "#e0e0e0"
+      },
+      "30": {
+        "$description": "Medium-light neutral. Should be used for default tertiary button borders and subtle interactive boundaries on light themes.",
+        "$type": "color",
+        "$value": "#c7c7c7"
+      },
+      "40": {
+        "$description": "Medium neutral. Should be used for disabled text and icon colors on light themes. It must meet minimum contrast requirements against light surfaces for non-text indicators.",
+        "$type": "color",
+        "$value": "#a3a3a3"
+      },
+      "50": {
+        "$description": "Mid neutral. Should be used for disabled text and icon colors on dark themes, and for default tertiary button borders on dark themes.",
+        "$type": "color",
+        "$value": "#707070"
+      },
+      "60": {
+        "$description": "Medium-dark neutral. Recommended for secondary text or muted content on light themes.",
+        "$type": "color",
+        "$value": "#4d4d4d"
+      },
+      "70": {
+        "$description": "Dark neutral. Should be used for spinner tracks and disabled fills on dark themes.",
+        "$type": "color",
+        "$value": "#383838"
+      },
+      "90": {
+        "$description": "Darkest neutral text color. Should be used as the primary text color on light themes and as the inverse text color on dark themes.",
+        "$type": "color",
+        "$value": "#1f1f1f"
+      },
+      "95": {
+        "$description": "Near-black surface. Recommended for the darkest surface backgrounds.",
+        "$type": "color",
+        "$value": "#151515"
+      }
+    },
+    "green": {
+      "30": {
+        "$description": "Light green. Should be used for success status hover states on dark themes.",
+        "$type": "color",
+        "$value": "#afdc8f"
+      },
+      "70": {
+        "$description": "Dark green. Should be used for success status hover states on light themes.",
+        "$type": "color",
+        "$value": "#204d00"
+      }
+    },
+    "icon": {
+      "secondary": {
+        "$description": "Secondary icon color. Used for icon-only buttons and neutral icon content. Resolves to near-black on light themes and white on dark themes.",
+        "$type": "color",
+        "$value": "light-dark(#1f1f1f, white)"
+      }
+    },
+    "interactive": {
+      "fill": {
+        "plain": {
+          "active": {
+            "$description": "Active background for plain interactive elements.",
+            "$type": "color",
+            "$value": "light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15))"
+          },
+          "hover": {
+            "$description": "Hover background for plain interactive elements like link and icon buttons.",
+            "$type": "color",
+            "$value": "light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15))"
+          }
+        }
+      },
+      "primary": {
+        "active": {
+          "$description": "Active/pressed state for interactive primary elements. Blue-60 on light, blue-20 on dark.",
+          "$type": "color",
+          "$value": "light-dark(#004d99, #b9dafc)"
+        },
+        "default": {
+          "$description": "Default interactive primary color. Used for primary button backgrounds, link text, and focus indicators. Blue-50 on light, blue-30 on dark.",
+          "$type": "color",
+          "$value": "light-dark(#0066cc, #92c5f9)"
+        },
+        "focus": {
+          "$description": "Focus state for interactive primary elements. Blue-60 on light, blue-20 on dark.",
+          "$type": "color",
+          "$value": "light-dark(#004d99, #b9dafc)"
+        },
+        "hover": {
+          "$description": "Hover state for interactive primary elements. Blue-60 on light, blue-20 on dark.",
+          "$type": "color",
+          "$value": "light-dark(#004d99, #b9dafc)"
+        }
+      }
+    },
+    "purple": {
+      "20": {
+        "$description": "Light purple. Should be used for info status hover states on dark themes.",
+        "$type": "color",
+        "$value": "#d0c5f4"
+      },
+      "60": {
+        "$description": "Dark purple. Should be used for info status hover states on light themes.",
+        "$type": "color",
+        "$value": "#3d2785"
+      }
+    },
+    "red-orange": {
+      "20": {
+        "$description": "Lightest red-orange. Should be used for danger text hover states on dark themes.",
+        "$type": "color",
+        "$value": "#fbbea8"
+      },
+      "30": {
+        "$description": "Light red-orange. Should be used for danger text default state on dark themes.",
+        "$type": "color",
+        "$value": "#f89b78"
+      },
+      "40": {
+        "$description": "Medium red-orange. Should be used for danger hover and focus states on dark themes. Recommended for danger icon hover on dark surfaces.",
+        "$type": "color",
+        "$value": "#f4784a"
+      },
+      "50": {
+        "$description": "Primary red-orange. Should be used as the default danger status color on dark themes. Recommended for danger buttons on dark surfaces.",
+        "$type": "color",
+        "$value": "#f0561d"
+      },
+      "60": {
+        "$description": "Dark red-orange. Should be used as the default danger status color on light themes. Recommended for danger buttons and danger text on light surfaces.",
+        "$type": "color",
+        "$value": "#b1380b"
+      },
+      "70": {
+        "$description": "Darkest red-orange. Should be used for danger hover and active states on light themes.",
+        "$type": "color",
+        "$value": "#731f00"
+      }
+    },
+    "status": {
+      "danger": {
+        "$description": "Default danger status color. Used for danger button backgrounds. Red-orange-60 on light, red-orange-50 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#b1380b, #f0561d)"
+      },
+      "danger-active": {
+        "$description": "Active state for danger elements. Red-orange-70 on light, red-orange-40 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#731f00, #f4784a)"
+      },
+      "danger-hover": {
+        "$description": "Hover state for danger elements. Red-orange-70 on light, red-orange-40 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#731f00, #f4784a)"
+      }
+    },
+    "teal": {
+      "30": {
+        "$description": "Light teal. Should be used for custom status hover states on dark themes.",
+        "$type": "color",
+        "$value": "#9ad8d8"
+      },
+      "40": {
+        "$description": "Medium teal. Should be used as the default custom status color on dark themes.",
+        "$type": "color",
+        "$value": "#63bdbd"
+      },
+      "60": {
+        "$description": "Dark teal. Should be used as the default custom status color on light themes.",
+        "$type": "color",
+        "$value": "#147878"
+      },
+      "70": {
+        "$description": "Darkest teal. Should be used for custom status hover states on light themes.",
+        "$type": "color",
+        "$value": "#004d4d"
+      }
+    },
+    "text": {
+      "primary-inverse": {
+        "$description": "Inverse primary text color. Used for text on filled interactive surfaces like primary buttons. Resolves to white on light themes and near-black on dark themes.",
+        "$type": "color",
+        "$value": "light-dark(white, #1f1f1f)"
+      }
+    },
+    "text-interactive": {
+      "active": {
+        "$description": "Active text color for interactive elements. Blue-60 on light, blue-10 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#004d99, #e0f0ff)"
+      },
+      "default": {
+        "$description": "Default text color for interactive elements like link buttons. Blue-50 on light, blue-20 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#0066cc, #b9dafc)"
+      },
+      "hover": {
+        "$description": "Hover text color for interactive elements. Blue-60 on light, blue-10 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#004d99, #e0f0ff)"
+      }
+    },
+    "text-status": {
+      "danger": {
+        "$description": "Danger text color. Used for secondary/tertiary danger button text. Red-orange-60 on light, red-orange-30 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#b1380b, #f89b78)"
+      },
+      "danger-hover": {
+        "$description": "Hover state for danger text. Red-orange-70 on light, red-orange-20 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#731f00, #fbbea8)"
+      },
+      "disabled": {
+        "$description": "Text color for disabled unfilled elements like secondary, tertiary, and link buttons. Gray-40 on light, gray-50 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#a3a3a3, #707070)"
+      },
+      "on-disabled": {
+        "$description": "Text color on disabled filled surfaces. Gray-50 on light, gray-70 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#707070, #383838)"
+      }
+    },
+    "yellow": {
+      "20": {
+        "$description": "Light yellow. Should be used for warning status hover states on dark themes.",
+        "$type": "color",
+        "$value": "#ffe072"
+      },
+      "40": {
+        "$description": "Medium yellow. Should be used for warning status hover states on light themes.",
+        "$type": "color",
+        "$value": "#dca614"
+      }
+    }
+  },
+  "font": {
+    "line-height": {
+      "body-text": {
+        "$description": "Default body text line height. Should be used for all body text to ensure comfortable readability and adequate touch targets when applied to interactive elements.",
+        "$type": "number",
+        "$value": "1.5"
+      }
+    },
+    "size": {
+      "body-text-md": {
+        "$description": "Medium body text size. Should be used as the default for body copy and form field text.",
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "body-text-sm": {
+        "$description": "Small body text size. Should be used for button labels, compact UI text, and secondary content. It must not be used for primary body copy.",
+        "$type": "dimension",
+        "$value": "14px"
+      }
+    }
+  },
+  "size": {
+    "icon": {
+      "lg": {
+        "$description": "Large icon size. Should be used for prominent standalone icons and status indicators.",
+        "$type": "dimension",
+        "$value": "22px"
+      },
+      "md": {
+        "$description": "Medium icon size. Should be used as the default icon size for most inline and standalone icon usage.",
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "sm": {
+        "$description": "Small icon size. Should be used for icons inside compact interactive elements like buttons and form controls.",
+        "$type": "dimension",
+        "$value": "14px"
+      }
+    }
+  },
+  "space": {
+    "2xl": {
+      "$description": "32px spacer",
+      "$type": "dimension",
+      "$value": "32px"
+    },
+    "3xl": {
+      "$description": "48px spacer",
+      "$type": "dimension",
+      "$value": "48px"
+    },
+    "lg": {
+      "$description": "16px spacer",
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "md": {
+      "$description": "8px spacer",
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "sm": {
+      "$description": "6px spacer",
+      "$type": "dimension",
+      "$value": "6px"
+    },
+    "xl": {
+      "$description": "24px spacer",
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "xs": {
+      "$description": "4px spacer",
+      "$type": "dimension",
+      "$value": "4px"
+    }
+  }
+}

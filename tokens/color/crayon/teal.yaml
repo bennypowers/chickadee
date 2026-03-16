@@ -1,0 +1,23 @@
+color:
+  $type: color
+  teal:
+    "30":
+      $value: "#9ad8d8"
+      $description: >-
+        Light teal. Should be used for custom status hover states on dark
+        themes.
+    "40":
+      $value: "#63bdbd"
+      $description: >-
+        Medium teal. Should be used as the default custom status color on dark
+        themes.
+    "60":
+      $value: "#147878"
+      $description: >-
+        Dark teal. Should be used as the default custom status color on light
+        themes.
+    "70":
+      $value: "#004d4d"
+      $description: >-
+        Darkest teal. Should be used for custom status hover states on light
+        themes.

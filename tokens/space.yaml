@@ -1,0 +1,23 @@
+space:
+  $type: dimension
+  xs:
+    $value: 4px
+    $description: 4px spacer
+  sm:
+    $value: 6px
+    $description: 6px spacer
+  md:
+    $value: 8px
+    $description: 8px spacer
+  lg:
+    $value: 16px
+    $description: 16px spacer
+  xl:
+    $value: 24px
+    $description: 24px spacer
+  2xl:
+    $value: 32px
+    $description: 32px spacer
+  3xl:
+    $value: 48px
+    $description: 48px spacer

@@ -1,0 +1,9 @@
+color:
+  $type: color
+  icon:
+    secondary:
+      $value: "light-dark(#1f1f1f, white)"
+      $description: >-
+        Secondary icon color. Used for icon-only buttons and neutral icon
+        content. Resolves to near-black on light themes and white on dark
+        themes.

@@ -1,0 +1,9 @@
+color:
+  $type: color
+  text:
+    primary-inverse:
+      $value: "light-dark(white, #1f1f1f)"
+      $description: >-
+        Inverse primary text color. Used for text on filled interactive
+        surfaces like primary buttons. Resolves to white on light themes and
+        near-black on dark themes.

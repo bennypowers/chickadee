@@ -1,0 +1,22 @@
+font:
+  size:
+    $type: dimension
+    body-text-sm:
+      $value: 14px
+      $description: >-
+        Small body text size. Should be used for button labels, compact UI text,
+        and secondary content. It must not be used for primary body copy.
+    body-text-md:
+      $value: 16px
+      $description: >-
+        Medium body text size. Should be used as the default for body copy and
+        form field text.
+
+  line-height:
+    $type: number
+    body-text:
+      $value: "1.5"
+      $description: >-
+        Default body text line height. Should be used for all body text to
+        ensure comfortable readability and adequate touch targets when applied
+        to interactive elements.

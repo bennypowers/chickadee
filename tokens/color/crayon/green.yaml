@@ -1,0 +1,13 @@
+color:
+  $type: color
+  green:
+    "30":
+      $value: "#afdc8f"
+      $description: >-
+        Light green. Should be used for success status hover states on dark
+        themes.
+    "70":
+      $value: "#204d00"
+      $description: >-
+        Dark green. Should be used for success status hover states on light
+        themes.

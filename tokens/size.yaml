@@ -1,0 +1,18 @@
+size:
+  $type: dimension
+  icon:
+    sm:
+      $value: 14px
+      $description: >-
+        Small icon size. Should be used for icons inside compact interactive
+        elements like buttons and form controls.
+    md:
+      $value: 16px
+      $description: >-
+        Medium icon size. Should be used as the default icon size for most
+        inline and standalone icon usage.
+    lg:
+      $value: 22px
+      $description: >-
+        Large icon size. Should be used for prominent standalone icons and
+        status indicators.

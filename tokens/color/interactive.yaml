@@ -1,0 +1,77 @@
+color:
+  $type: color
+  interactive:
+    primary:
+      default:
+        $value: "light-dark(#0066cc, #92c5f9)"
+        $description: >-
+          Default interactive primary color. Used for primary button
+          backgrounds, link text, and focus indicators. Blue-50 on light,
+          blue-30 on dark.
+      hover:
+        $value: "light-dark(#004d99, #b9dafc)"
+        $description: >-
+          Hover state for interactive primary elements. Blue-60 on light,
+          blue-20 on dark.
+      focus:
+        $value: "light-dark(#004d99, #b9dafc)"
+        $description: >-
+          Focus state for interactive primary elements. Blue-60 on light,
+          blue-20 on dark.
+      active:
+        $value: "light-dark(#004d99, #b9dafc)"
+        $description: >-
+          Active/pressed state for interactive primary elements. Blue-60 on
+          light, blue-20 on dark.
+
+    fill:
+      plain:
+        hover:
+          $value: "light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15))"
+          $description: >-
+            Hover background for plain interactive elements like link and icon
+            buttons.
+        active:
+          $value: "light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15))"
+          $description: >-
+            Active background for plain interactive elements.
+
+  text-interactive:
+    default:
+      $value: "light-dark(#0066cc, #b9dafc)"
+      $description: >-
+        Default text color for interactive elements like link buttons.
+        Blue-50 on light, blue-20 on dark.
+    hover:
+      $value: "light-dark(#004d99, #e0f0ff)"
+      $description: >-
+        Hover text color for interactive elements. Blue-60 on light,
+        blue-10 on dark.
+    active:
+      $value: "light-dark(#004d99, #e0f0ff)"
+      $description: >-
+        Active text color for interactive elements. Blue-60 on light,
+        blue-10 on dark.
+
+  border-interactive:
+    subtle:
+      default:
+        $value: "light-dark(#c7c7c7, #707070)"
+        $description: >-
+          Default subtle interactive border. Used for tertiary button borders.
+          Gray-30 on light, gray-50 on dark.
+      hover:
+        $value: "light-dark(#4394e5, #92c5f9)"
+        $description: >-
+          Hover state for subtle interactive borders. Blue-40 on light,
+          blue-30 on dark.
+      focus:
+        $value: "light-dark(#4394e5, #92c5f9)"
+        $description: >-
+          Focus state for subtle interactive borders. Blue-40 on light,
+          blue-30 on dark.
+      active:
+        $value: "light-dark(#0066cc, #b9dafc)"
+        $description: >-
+          Active state for subtle interactive borders. Blue-50 on light,
+          blue-20 on dark.

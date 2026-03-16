@@ -1,0 +1,13 @@
+color:
+  $type: color
+  purple:
+    "20":
+      $value: "#d0c5f4"
+      $description: >-
+        Light purple. Should be used for info status hover states on dark
+        themes.
+    "60":
+      $value: "#3d2785"
+      $description: >-
+        Dark purple. Should be used for info status hover states on light
+        themes.

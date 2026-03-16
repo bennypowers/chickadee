@@ -1,0 +1,41 @@
+color:
+  $type: color
+  blue:
+    "10":
+      $value: "#e0f0ff"
+      $description: >-
+        Lightest blue. Should be used for interactive text and icon hover states
+        on dark themes.
+    "20":
+      $value: "#b9dafc"
+      $description: >-
+        Light blue. Should be used for interactive primary hover and active
+        states on dark themes, and for secondary button border hover on dark
+        themes.
+    "30":
+      $value: "#92c5f9"
+      $description: >-
+        Medium-light blue. Should be used as the default interactive primary
+        color on dark themes. Recommended for primary buttons and link text
+        on dark surfaces.
+    "40":
+      $value: "#4394e5"
+      $description: >-
+        Medium blue. Should be used for tertiary button border hover on light
+        themes.
+    "50":
+      $value: "#0066cc"
+      $description: >-
+        Primary blue. Should be used as the default interactive primary color
+        on light themes. Recommended for primary buttons, link text, and focus
+        indicators on light surfaces.
+    "60":
+      $value: "#004d99"
+      $description: >-
+        Dark blue. Should be used for interactive primary hover, focus, and
+        active states on light themes.
+    "70":
+      $value: "#003366"
+      $description: >-
+        Darkest blue. Should be used for spinner and progress track backgrounds
+        on dark themes.

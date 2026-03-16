@@ -1,0 +1,13 @@
+color:
+  $type: color
+  yellow:
+    "20":
+      $value: "#ffe072"
+      $description: >-
+        Light yellow. Should be used for warning status hover states on dark
+        themes.
+    "40":
+      $value: "#dca614"
+      $description: >-
+        Medium yellow. Should be used for warning status hover states on light
+        themes.

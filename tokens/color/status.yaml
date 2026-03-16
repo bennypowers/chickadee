@@ -1,0 +1,40 @@
+color:
+  $type: color
+  status:
+    danger:
+      $value: "light-dark(#b1380b, #f0561d)"
+      $description: >-
+        Default danger status color. Used for danger button backgrounds.
+        Red-orange-60 on light, red-orange-50 on dark.
+    danger-hover:
+      $value: "light-dark(#731f00, #f4784a)"
+      $description: >-
+        Hover state for danger elements. Red-orange-70 on light,
+        red-orange-40 on dark.
+    danger-active:
+      $value: "light-dark(#731f00, #f4784a)"
+      $description: >-
+        Active state for danger elements. Red-orange-70 on light,
+        red-orange-40 on dark.
+
+  text-status:
+    danger:
+      $value: "light-dark(#b1380b, #f89b78)"
+      $description: >-
+        Danger text color. Used for secondary/tertiary danger button text.
+        Red-orange-60 on light, red-orange-30 on dark.
+    danger-hover:
+      $value: "light-dark(#731f00, #fbbea8)"
+      $description: >-
+        Hover state for danger text. Red-orange-70 on light, red-orange-20
+        on dark.
+    on-disabled:
+      $value: "light-dark(#707070, #383838)"
+      $description: >-
+        Text color on disabled filled surfaces. Gray-50 on light, gray-70
+        on dark.
+    disabled:
+      $value: "light-dark(#a3a3a3, #707070)"
+      $description: >-
+        Text color for disabled unfilled elements like secondary, tertiary,
+        and link buttons. Gray-40 on light, gray-50 on dark.
