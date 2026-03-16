@@ -1,0 +1,24 @@
+{
+  "name": "@chickadee/elements",
+  "version": "1.0.0",
+  "description": "Preview of Unified Design System",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build:tokens": "asimonim convert -o tokens/chickadee.tokens.json",
+    "build:manifest": "cem generate",
+    "build": "npm run build:tokens && npm run build:manifest",
+    "start": "cem serve"
+  },
+  "exports": {
+    ".": "./elements.js",
+    "./*": "./elements/*"
+  },
+  "dependencies": {
+    "lit": "^3.3.2"
+  },
+  "devDependencies": {
+    "@pwrs/cem": "^0.9.9",
+    "@rhds/tokens": "^3.0.2"
+  }
+}

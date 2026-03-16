@@ -1,0 +1,14 @@
+generate:
+  files:
+    - elements/*/chickadee-*.ts
+  output: custom-elements.json
+  designTokens:
+    spec: tokens/chickadee.tokens.json
+    prefix: chickadee
+  demoDiscovery:
+    fileGlob: elements/*/demo/*.html
+    urlPattern: /elements/:tag/demo/:demo.html
+    urlTemplate: /elements/{{.tag}}/demo/{{.demo}}/
+serve:
+  cssTransform:
+    - "elements/**/*.css"
