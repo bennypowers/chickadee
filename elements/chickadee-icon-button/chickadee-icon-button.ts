@@ -43,7 +43,7 @@ export class ChickadeeIconButton extends LitElement {
               ?disabled=${this.disabled}
               aria-disabled=${this.disabled ? 'true' : 'false'}
               aria-label=${this.accessibleLabel ?? ''}>
-        <!-- Icon content (e.g. SVG or icon element). MUST contain exactly one icon. The icon SHOULD use `currentColor` for fill so it inherits the button's color. The slotted content is decorative — the `accessible-label` attribute provides the accessible name. -->
+        <!-- Icon content (e.g. SVG or icon element). MUST contain exactly one icon. The icon SHOULD use currentColor for fill so it inherits the button's color. The slotted content is decorative; the accessible-label attribute provides the accessible name. -->
         <slot></slot>
       </button>
     `;
