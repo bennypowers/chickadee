@@ -1,0 +1,226 @@
+:host {
+  /**
+   * Controls border radius. Maps to the `--chickadee-border-radius-pill`
+   * design token for pill-shaped buttons. Override to change button shape.
+   */
+  --_border-radius: var(--chickadee-button-border-radius, var(--chickadee-border-radius-pill, 64px));
+
+  /**
+   * Controls font size. Maps to the `--chickadee-font-size-body-text-sm`
+   * design token. Override for larger or smaller button text.
+   */
+  --_font-size: var(--chickadee-button-font-size, var(--chickadee-font-size-body-text-sm, 14px));
+
+  --_line-height: var(--chickadee-font-line-height-body-text, 1.5);
+
+  /**
+   * Controls vertical padding. Maps to the `--chickadee-space-md` design
+   * token. Reduced automatically when the `compact` attribute is set.
+   */
+  --_padding-block: var(--chickadee-button-padding-block, var(--chickadee-space-md, 8px));
+
+  /**
+   * Controls horizontal padding. Maps to the `--chickadee-space-xl` design
+   * token. Reduced automatically when the `compact` attribute is set.
+   */
+  --_padding-inline: var(--chickadee-button-padding-inline, var(--chickadee-space-xl, 24px));
+
+  --_border-width: 0;
+  --_border-color: transparent;
+  --_focus-ring-width: var(--chickadee-border-width-lg, 3px);
+  --_focus-ring-color: var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
+
+  /**
+   * Overrides text and icon color. When unset, resolves from the variant's
+   * interactive color tokens (e.g. `--chickadee-color-interactive-primary-default`).
+   */
+  --_color:
+    var(--chickadee-button-color,
+      var(--chickadee-color-text-primary-inverse, light-dark(white, #1f1f1f)));
+
+  /**
+   * Overrides background color. When unset, resolves from the variant's
+   * interactive color tokens (e.g. `--chickadee-color-interactive-primary-default`).
+   */
+  --_background:
+    var(--chickadee-button-background,
+      var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9)));
+
+  display: inline-block;
+}
+
+:host([compact]) {
+  --_padding-block: var(--chickadee-space-sm, 6px);
+  --_padding-inline: var(--chickadee-space-lg, 16px);
+}
+
+/* Primary (default) */
+:host([variant="primary"]) {
+  --_color: var(--chickadee-button-color, var(--chickadee-color-text-primary-inverse, light-dark(white, #1f1f1f)));
+  --_background: var(--chickadee-button-background, var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9)));
+}
+
+:host([variant="primary"]) button:hover {
+  --_background: var(--chickadee-color-interactive-primary-hover, light-dark(#004d99, #b9dafc));
+}
+
+:host([variant="primary"]) button:active {
+  --_background: var(--chickadee-color-interactive-primary-active, light-dark(#004d99, #b9dafc));
+}
+
+:host([variant="primary"][danger]) {
+  --_background: var(--chickadee-color-status-danger, light-dark(#b1380b, #f0561d));
+}
+
+:host([variant="primary"][danger]) button:hover {
+  --_background: var(--chickadee-color-status-danger-hover, light-dark(#731f00, #f4784a));
+}
+
+:host([variant="primary"][danger]) button:active {
+  --_background: var(--chickadee-color-status-danger-active, light-dark(#731f00, #f4784a));
+}
+
+/* Secondary */
+:host([variant="secondary"]) {
+  --_color: var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
+  --_background: transparent;
+  --_border-width: var(--chickadee-border-width-sm, 1px);
+  --_border-color: var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
+}
+
+:host([variant="secondary"]) button:hover {
+  --_border-width: var(--chickadee-border-width-md, 2px);
+  --_color: var(--chickadee-color-interactive-primary-hover, light-dark(#004d99, #b9dafc));
+  --_border-color: var(--chickadee-color-interactive-primary-hover, light-dark(#004d99, #b9dafc));
+}
+
+:host([variant="secondary"]) button:active {
+  --_border-width: var(--chickadee-border-width-md, 2px);
+  --_color: var(--chickadee-color-interactive-primary-active, light-dark(#004d99, #b9dafc));
+  --_border-color: var(--chickadee-color-interactive-primary-active, light-dark(#004d99, #b9dafc));
+}
+
+:host([variant="secondary"][danger]) {
+  --_color: var(--chickadee-color-text-status-danger, light-dark(#b1380b, #f89b78));
+  --_border-color: var(--chickadee-color-status-danger, light-dark(#b1380b, #f0561d));
+}
+
+:host([variant="secondary"][danger]) button:hover {
+  --_color: var(--chickadee-color-status-danger-hover, light-dark(#731f00, #f4784a));
+  --_border-color: var(--chickadee-color-status-danger-hover, light-dark(#731f00, #f4784a));
+}
+
+/* Tertiary */
+:host([variant="tertiary"]) {
+  --_color: var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
+  --_background: transparent;
+  --_border-width: var(--chickadee-border-width-sm, 1px);
+  --_border-color: var(--chickadee-color-border-interactive-subtle-default, light-dark(#c7c7c7, #707070));
+}
+
+:host([variant="tertiary"]) button:hover {
+  --_color: var(--chickadee-color-interactive-primary-hover, light-dark(#004d99, #b9dafc));
+  --_border-color: var(--chickadee-color-border-interactive-subtle-hover, light-dark(#4394e5, #92c5f9));
+}
+
+:host([variant="tertiary"]) button:active {
+  --_border-width: var(--chickadee-border-width-md, 2px);
+  --_color: var(--chickadee-color-interactive-primary-active, light-dark(#004d99, #b9dafc));
+  --_border-color: var(--chickadee-color-border-interactive-subtle-active, light-dark(#0066cc, #b9dafc));
+}
+
+:host([variant="tertiary"][danger]) {
+  --_color: var(--chickadee-color-text-status-danger, light-dark(#b1380b, #f89b78));
+  --_border-color: var(--chickadee-color-status-danger, light-dark(#b1380b, #f0561d));
+}
+
+:host([variant="tertiary"][danger]) button:hover {
+  --_color: var(--chickadee-color-text-status-danger-hover, light-dark(#731f00, #fbbea8));
+  --_border-color: var(--chickadee-color-status-danger-hover, light-dark(#731f00, #f4784a));
+}
+
+/* Link */
+:host([variant="link"]) {
+  --_color: var(--chickadee-color-text-interactive-default, light-dark(#0066cc, #b9dafc));
+  --_background: transparent;
+}
+
+:host([variant="link"]) button:hover,
+:host([variant="link"]) button:focus-visible {
+  --_color: var(--chickadee-color-text-interactive-hover, light-dark(#004d99, #e0f0ff));
+  --_background: var(--chickadee-color-interactive-fill-plain-hover, light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15)));
+}
+
+:host([variant="link"]) button:active {
+  --_color: var(--chickadee-color-text-interactive-active, light-dark(#004d99, #e0f0ff));
+}
+
+:host([variant="link"][danger]) {
+  --_color: var(--chickadee-color-text-status-danger, light-dark(#b1380b, #f89b78));
+}
+
+:host([variant="link"][danger]) button:hover {
+  --_color: var(--chickadee-color-text-status-danger-hover, light-dark(#731f00, #fbbea8));
+}
+
+/* Disabled */
+:host([disabled]) {
+  pointer-events: none;
+}
+
+:host([disabled]) button {
+  cursor: not-allowed;
+}
+
+:host([variant="primary"][disabled]) {
+  --_color: var(--chickadee-color-text-status-on-disabled, light-dark(#707070, #383838));
+  --_background: var(--chickadee-color-gray-20, #e0e0e0);
+}
+
+:host([variant="secondary"][disabled]),
+:host([variant="tertiary"][disabled]) {
+  --_color: var(--chickadee-color-text-status-disabled, light-dark(#a3a3a3, #707070));
+  --_background: transparent;
+  --_border-color: var(--chickadee-color-text-status-disabled, light-dark(#a3a3a3, #707070));
+}
+
+:host([variant="link"][disabled]) {
+  --_color: var(--chickadee-color-text-status-disabled, light-dark(#a3a3a3, #707070));
+  --_background: transparent;
+}
+
+button {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--chickadee-space-md, 8px);
+  font-family: inherit;
+  font-size: var(--_font-size);
+  line-height: var(--_line-height);
+  padding-block: var(--_padding-block);
+  padding-inline: var(--_padding-inline);
+  border-radius: var(--_border-radius);
+  border: none;
+  box-shadow: inset 0 0 0 var(--_border-width) var(--_border-color);
+  color: var(--_color);
+  background: var(--_background);
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  transition:
+    background 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+button:focus-visible {
+  outline: var(--_focus-ring-width) solid var(--_focus-ring-color);
+  outline-offset: var(--_focus-ring-width);
+}
+
+::slotted([slot="icon"]) {
+  display: inline-flex;
+  width: var(--chickadee-size-icon-sm, 14px);
+  height: var(--chickadee-size-icon-sm, 14px);
+}

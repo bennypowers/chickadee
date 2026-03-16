@@ -1,0 +1,37 @@
+<meta itemprop="name" content="Variants">
+<meta itemprop="description" content="All button variants including danger states.">
+
+<section class="button-variants">
+  <chickadee-button>Primary</chickadee-button>
+  <chickadee-button variant="secondary">Secondary</chickadee-button>
+  <chickadee-button variant="tertiary">Tertiary</chickadee-button>
+  <chickadee-button variant="link">Link</chickadee-button>
+</section>
+
+<section class="button-variants">
+  <chickadee-button danger>Primary danger</chickadee-button>
+  <chickadee-button variant="secondary" danger>Secondary danger</chickadee-button>
+  <chickadee-button variant="tertiary" danger>Tertiary danger</chickadee-button>
+  <chickadee-button variant="link" danger>Link danger</chickadee-button>
+</section>
+
+<section class="button-variants">
+  <chickadee-button disabled>Disabled</chickadee-button>
+  <chickadee-button variant="secondary" disabled>Disabled</chickadee-button>
+  <chickadee-button variant="tertiary" disabled>Disabled</chickadee-button>
+  <chickadee-button variant="link" disabled>Disabled</chickadee-button>
+</section>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-button/chickadee-button.js';
+</script>
+
+<style>
+  .button-variants {
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: var(--chickadee-space-lg, 16px);
+    margin-block-end: var(--chickadee-space-xl, 24px);
+  }
+</style>

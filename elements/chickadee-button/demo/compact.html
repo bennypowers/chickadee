@@ -1,0 +1,22 @@
+<meta itemprop="name" content="Compact">
+<meta itemprop="description" content="Compact button sizing.">
+
+<section class="button-compact">
+  <chickadee-button compact>Compact primary</chickadee-button>
+  <chickadee-button compact variant="secondary">Compact secondary</chickadee-button>
+  <chickadee-button compact variant="tertiary">Compact tertiary</chickadee-button>
+  <chickadee-button compact variant="link">Compact link</chickadee-button>
+</section>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-button/chickadee-button.js';
+</script>
+
+<style>
+  .button-compact {
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: var(--chickadee-space-lg, 16px);
+  }
+</style>
