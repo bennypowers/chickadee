@@ -1,0 +1,20 @@
+:host {
+  line-height: 0;
+  aspect-ratio: 1/1;
+  display: inline-flex;
+  place-content: center;
+}
+
+#container {
+  display: contents;
+}
+
+svg {
+  /**
+   * Override default icon size. Maps to the `--chickadee-size-icon-md`
+   * design token.
+   */
+  width: var(--chickadee-icon-size, var(--chickadee-size-icon-md, 16px));
+  fill: currentcolor;
+  aspect-ratio: 1/1;
+}
