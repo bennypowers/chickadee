@@ -1,0 +1,30 @@
+<meta itemprop="name" content="Variants">
+<meta itemprop="description" content="All CTA variants including disabled states.">
+
+<section class="cta-variants">
+  <chickadee-cta variant="primary" href="#">Primary</chickadee-cta>
+  <chickadee-cta variant="secondary" href="#">Secondary</chickadee-cta>
+  <chickadee-cta variant="tertiary" href="#">Tertiary</chickadee-cta>
+  <chickadee-cta href="#">Default</chickadee-cta>
+</section>
+
+<section class="cta-variants">
+  <chickadee-cta variant="primary" href="#" disabled>Disabled</chickadee-cta>
+  <chickadee-cta variant="secondary" href="#" disabled>Disabled</chickadee-cta>
+  <chickadee-cta variant="tertiary" href="#" disabled>Disabled</chickadee-cta>
+  <chickadee-cta href="#" disabled>Disabled</chickadee-cta>
+</section>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-cta/chickadee-cta.js';
+</script>
+
+<style>
+  .cta-variants {
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: var(--chickadee-space-lg, 16px);
+    margin-block-end: var(--chickadee-space-xl, 24px);
+  }
+</style>

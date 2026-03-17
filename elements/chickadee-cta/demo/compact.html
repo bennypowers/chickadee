@@ -1,0 +1,22 @@
+<meta itemprop="name" content="Compact">
+<meta itemprop="description" content="Compact sizing for all CTA variants.">
+
+<section class="cta-compact">
+  <chickadee-cta variant="primary" compact href="#">Primary</chickadee-cta>
+  <chickadee-cta variant="secondary" compact href="#">Secondary</chickadee-cta>
+  <chickadee-cta variant="tertiary" compact href="#">Tertiary</chickadee-cta>
+  <chickadee-cta compact href="#">Default</chickadee-cta>
+</section>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-cta/chickadee-cta.js';
+</script>
+
+<style>
+  .cta-compact {
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: var(--chickadee-space-lg, 16px);
+  }
+</style>

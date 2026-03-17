@@ -1,0 +1,179 @@
+:host {
+  /**
+   * Controls border radius. Maps to the `--chickadee-border-radius-pill`
+   * design token for pill-shaped CTAs. Override to change CTA shape.
+   */
+  --_border-radius: var(--chickadee-cta-border-radius, var(--chickadee-border-radius-pill, 64px));
+
+  /**
+   * Controls font size. Maps to the `--chickadee-font-size-body-text-sm`
+   * design token.
+   */
+  --_font-size: var(--chickadee-cta-font-size, var(--chickadee-font-size-body-text-sm, 14px));
+
+  --_line-height: var(--chickadee-font-line-height-body-text, 1.5);
+  --_padding-block: var(--chickadee-space-lg, 16px);
+  --_padding-inline: var(--chickadee-space-2xl, 32px);
+  --_border-width: 0;
+  --_border-color: transparent;
+  --_focus-ring-width: var(--chickadee-border-width-lg, 3px);
+  --_focus-ring-color: var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
+  --_color: inherit;
+  --_background: transparent;
+  --_text-decoration: none;
+
+  display: inline-block;
+}
+
+:host([compact]) {
+  --_padding-block: var(--chickadee-space-md, 8px);
+  --_padding-inline: var(--chickadee-space-xl, 24px);
+}
+
+/* Default (no variant) - inline link with arrow */
+
+:host(:not([variant])) {
+  --_color: var(--chickadee-color-text-interactive-default, light-dark(#0066cc, #b9dafc));
+  --_background: transparent;
+  --_padding-block: var(--chickadee-space-md, 8px);
+  --_padding-inline: var(--chickadee-space-xl, 24px);
+}
+
+:host(:not([variant])) a {
+  &:hover {
+    --_color: var(--chickadee-color-text-interactive-hover, light-dark(#004d99, #e0f0ff));
+    --_background: var(--chickadee-color-interactive-fill-plain-hover, light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15)));
+    --_text-decoration: underline dashed;
+  }
+
+  &:active {
+    --_color: var(--chickadee-color-text-interactive-active, light-dark(#004d99, #e0f0ff));
+    --_background: var(--chickadee-color-interactive-fill-plain-active, light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15)));
+    --_text-decoration: underline dashed;
+  }
+}
+
+/* Primary */
+
+:host([variant="primary"]) {
+  --_color: light-dark(white, white);
+  --_background: var(--chickadee-color-brand, light-dark(#ee0000, #ee0000));
+}
+
+:host([variant="primary"]) a {
+  &:hover {
+    --_background: var(--chickadee-color-brand-hover, light-dark(#a60000, #a60000));
+    --_text-decoration: underline dashed light-dark(white, white);
+  }
+
+  &:active {
+    --_background: var(--chickadee-color-brand-hover, light-dark(#a60000, #a60000));
+    --_text-decoration: underline dashed light-dark(white, white);
+  }
+}
+
+/* Secondary */
+
+:host([variant="secondary"]) {
+  --_color: var(--chickadee-color-text-primary, light-dark(#151515, white));
+  --_background: transparent;
+  --_border-width: var(--chickadee-border-width-sm, 1px);
+  --_border-color: var(--chickadee-color-border-strong, light-dark(#151515, white));
+}
+
+:host([variant="secondary"]) a {
+  &:hover {
+    --_border-width: var(--chickadee-border-width-md, 2px);
+    --_text-decoration: underline dashed;
+  }
+
+  &:active {
+    --_border-width: var(--chickadee-border-width-md, 2px);
+    --_text-decoration: underline dashed;
+  }
+}
+
+/* Tertiary */
+
+:host([variant="tertiary"]) {
+  --_color: var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
+  --_background: transparent;
+  --_border-width: var(--chickadee-border-width-sm, 1px);
+  --_border-color: var(--chickadee-color-border-interactive-subtle-default, light-dark(#c7c7c7, #707070));
+}
+
+:host([variant="tertiary"]) a {
+  &:hover {
+    --_border-width: var(--chickadee-border-width-md, 2px);
+    --_color: var(--chickadee-color-interactive-primary-hover, light-dark(#004d99, #b9dafc));
+    --_border-color: var(--chickadee-color-border-interactive-subtle-hover, light-dark(#4394e5, #92c5f9));
+    --_text-decoration: underline dashed;
+  }
+
+  &:active {
+    --_border-width: var(--chickadee-border-width-md, 2px);
+    --_color: var(--chickadee-color-interactive-primary-active, light-dark(#004d99, #b9dafc));
+    --_border-color: var(--chickadee-color-border-interactive-subtle-active, light-dark(#0066cc, #b9dafc));
+    --_text-decoration: underline dashed;
+  }
+}
+
+/* Disabled - all variants */
+
+:host([disabled]) {
+  pointer-events: none;
+  --_color: var(--chickadee-color-text-status-disabled, light-dark(#a3a3a3, #707070));
+  --_background: transparent;
+  --_border-color: var(--chickadee-color-text-status-disabled, light-dark(#a3a3a3, #707070));
+}
+
+:host([variant="primary"][disabled]) {
+  --_background: var(--chickadee-color-gray-20, #e0e0e0);
+  --_color: var(--chickadee-color-text-status-on-disabled, light-dark(#707070, #383838));
+}
+
+/* Anchor element */
+
+a {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--chickadee-space-xs, 4px);
+  font-family: inherit;
+  font-size: var(--_font-size);
+  font-weight: 500;
+  line-height: var(--_line-height);
+  padding-block: var(--_padding-block);
+  padding-inline: var(--_padding-inline);
+  border-radius: var(--_border-radius);
+  border: none;
+  box-shadow: inset 0 0 0 var(--_border-width) var(--_border-color);
+  color: var(--_color);
+  background: var(--_background);
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  transition:
+    background 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease;
+
+  &:focus-visible {
+    outline: var(--_focus-ring-width) solid var(--_focus-ring-color);
+    outline-offset: var(--_focus-ring-width);
+  }
+}
+
+#text {
+  text-decoration: var(--_text-decoration);
+}
+
+#arrow {
+  --chickadee-icon-size: var(--chickadee-size-icon-sm, 14px);
+  transition: translate 150ms ease;
+
+  a:hover & {
+    translate: 3px 0;
+  }
+}
