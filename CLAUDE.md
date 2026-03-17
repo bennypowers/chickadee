@@ -51,3 +51,13 @@ apply engineering judgment and a critical eye when translating designs into comp
 - Demos are HTML partials using package specifier imports
 - Borders that change width on hover use `box-shadow: inset` to avoid layout
   shift
+
+## Memory
+
+Update this file with important design-to-dev context provided by the user, as you go
+
+## CSS
+Use baseline 2025 features, e.g. css nesting, light-dark(), etc
+
+## Git
+Use conventional commit syntax. scopes are unprefixed element names e.g. `fix(button)`
