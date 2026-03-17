@@ -4,11 +4,12 @@
 }
 
 :host {
-  --_icon-size: 24px;
+  --_icon-size: 28px;
   --_icon-border: var(--chickadee-border-width-md, 2px);
   --_line-color: var(--chickadee-color-border-strong, light-dark(#151515, white));
   --_label-color: var(--chickadee-color-text-primary, light-dark(#151515, white));
   --_description-color: var(--chickadee-color-text-secondary, light-dark(#4d4d4d, #c7c7c7));
+  --_surface: light-dark(var(--chickadee-color-surface, white), var(--chickadee-color-surface, #151515));
 }
 
 #container {
@@ -17,39 +18,27 @@
   grid-template-areas:
     'icon label'
     '.    description';
-  grid-template-columns: calc(var(--_icon-size) + 4px) 1fr;
+  grid-template-columns: var(--_icon-size) 1fr;
   grid-template-rows: auto auto;
-  gap: var(--chickadee-space-xs, 4px) var(--chickadee-space-lg, 16px);
+  gap: var(--chickadee-space-xs, 4px) var(--chickadee-space-md, 8px);
   align-items: center;
-  padding-inline-end: var(--chickadee-space-2xl, 32px);
   inline-size: 100%;
   font-family: inherit;
   font-size: var(--chickadee-font-size-body-text-md, 16px);
   line-height: var(--chickadee-font-line-height-body-text, 1.5);
-
-  /* Connecting line between steps */
-  &::before {
-    position: absolute;
-    content: '';
-    inset-block: 0 100%;
-    inset-inline: calc((var(--_icon-size) + 4px) * -1) 100%;
-    inline-size: calc(100% - var(--_icon-size) - 4px);
-    block-size: 100%;
-    background:
-      linear-gradient(
-        -180deg,
-        transparent 13px,
-        var(--_line-color) 13px,
-        var(--_line-color) 15px,
-        transparent 15px
-      );
-    pointer-events: none;
-  }
 }
 
-/* Hide connecting line on first step */
-:host(:first-of-type) #container::before {
-  display: none;
+/* Horizontal connecting line between steps */
+:host(:not(:first-of-type)) #container::before {
+  content: '';
+  position: absolute;
+  inset-block-start: calc(var(--_icon-size) / 2 - 1px);
+  inset-inline-end: calc(100% - 1px);
+  block-size: 2px;
+  inline-size: 100vw;
+  background: var(--_line-color);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Icon area */
@@ -61,13 +50,21 @@
   inline-size: var(--_icon-size);
   border: var(--_icon-border) solid var(--_line-color);
   border-radius: 50%;
-  background-color: light-dark(white, #151515);
+  background-color: var(--_surface);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   /**
    * Step icon color. Derived from the step state. Override to customize
    * the icon color for a specific step.
    */
   color: var(--_step-color, var(--_label-color));
+}
+
+chickadee-icon {
+  --chickadee-icon-size: calc(var(--_icon-size) - var(--_icon-border) * 2 - 4px);
 }
 
 .no-icon {

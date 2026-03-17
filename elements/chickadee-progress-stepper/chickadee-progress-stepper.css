@@ -1,11 +1,11 @@
 :host {
   container-type: inline-size;
   display: block;
+  overflow: hidden;
 }
 
 #container {
   display: flex;
-  gap: var(--chickadee-space-lg, 16px);
 }
 
 slot {
