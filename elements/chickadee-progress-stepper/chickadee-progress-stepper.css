@@ -1,0 +1,30 @@
+:host {
+  container-type: inline-size;
+  display: block;
+}
+
+#container {
+  display: flex;
+  gap: var(--chickadee-space-lg, 16px);
+}
+
+slot {
+  display: grid;
+  place-content: baseline normal;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  padding: 0;
+}
+
+.vertical slot,
+.compact slot {
+  grid-auto-flow: row;
+  grid-auto-columns: auto;
+}
+
+@container (width < 768px) {
+  slot:not(.vertical slot, .compact slot) {
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+  }
+}

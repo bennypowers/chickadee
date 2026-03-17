@@ -1,0 +1,24 @@
+<meta itemprop="name" content="States">
+<meta itemprop="description" content="Progress stepper showing all step states.">
+
+<chickadee-progress-stepper>
+  <chickadee-progress-step state="complete" description="Completed successfully">
+    Complete
+  </chickadee-progress-step>
+  <chickadee-progress-step state="warn" description="Succeeded with warnings">
+    Warning
+  </chickadee-progress-step>
+  <chickadee-progress-step state="fail" description="This step failed">
+    Failed
+  </chickadee-progress-step>
+  <chickadee-progress-step state="active" description="Currently in progress">
+    Active
+  </chickadee-progress-step>
+  <chickadee-progress-step description="Not yet started">
+    Inactive
+  </chickadee-progress-step>
+</chickadee-progress-stepper>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-progress-stepper/chickadee-progress-stepper.js';
+</script>

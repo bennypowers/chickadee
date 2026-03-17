@@ -1,0 +1,130 @@
+*,
+*::before {
+  box-sizing: border-box;
+}
+
+:host {
+  --_icon-size: 24px;
+  --_icon-border: var(--chickadee-border-width-md, 2px);
+  --_line-color: var(--chickadee-color-border-strong, light-dark(#151515, white));
+  --_label-color: var(--chickadee-color-text-primary, light-dark(#151515, white));
+  --_description-color: var(--chickadee-color-text-secondary, light-dark(#4d4d4d, #c7c7c7));
+}
+
+#container {
+  position: relative;
+  display: grid;
+  grid-template-areas:
+    'icon label'
+    '.    description';
+  grid-template-columns: calc(var(--_icon-size) + 4px) 1fr;
+  grid-template-rows: auto auto;
+  gap: var(--chickadee-space-xs, 4px) var(--chickadee-space-lg, 16px);
+  align-items: center;
+  padding-inline-end: var(--chickadee-space-2xl, 32px);
+  inline-size: 100%;
+  font-family: inherit;
+  font-size: var(--chickadee-font-size-body-text-md, 16px);
+  line-height: var(--chickadee-font-line-height-body-text, 1.5);
+
+  /* Connecting line between steps */
+  &::before {
+    position: absolute;
+    content: '';
+    inset-block: 0 100%;
+    inset-inline: calc((var(--_icon-size) + 4px) * -1) 100%;
+    inline-size: calc(100% - var(--_icon-size) - 4px);
+    block-size: 100%;
+    background:
+      linear-gradient(
+        -180deg,
+        transparent 13px,
+        var(--_line-color) 13px,
+        var(--_line-color) 15px,
+        transparent 15px
+      );
+    pointer-events: none;
+  }
+}
+
+/* Hide connecting line on first step */
+:host(:first-of-type) #container::before {
+  display: none;
+}
+
+/* Icon area */
+
+:is(chickadee-icon, .no-icon) {
+  grid-area: icon;
+  place-self: center;
+  block-size: var(--_icon-size);
+  inline-size: var(--_icon-size);
+  border: var(--_icon-border) solid var(--_line-color);
+  border-radius: 50%;
+  background-color: light-dark(white, #151515);
+
+  /**
+   * Step icon color. Derived from the step state. Override to customize
+   * the icon color for a specific step.
+   */
+  color: var(--_step-color, var(--_label-color));
+}
+
+.no-icon {
+  display: block;
+}
+
+/* State-specific icon colors */
+
+:host([state="active"]) {
+  --_step-color: var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
+}
+
+:host([state="complete"]) {
+  --_step-color: light-dark(#204d00, #afdc8f);
+}
+
+:host([state="warn"]) {
+  --_step-color: light-dark(#dca614, #ffe072);
+}
+
+:host([state="fail"]) {
+  --_step-color: light-dark(#b1380b, #f0561d);
+}
+
+/* Label */
+
+#label {
+  grid-area: label;
+  align-self: center;
+  color: var(--_label-color);
+  font-weight: 400;
+  text-decoration: none;
+
+  &:is(a[href]) {
+    text-decoration: underline dashed 1px;
+    text-decoration-color: light-dark(#707070, #a3a3a3);
+    text-underline-offset: max(5px, 0.28em);
+    transition: text-underline-offset 0.3s ease;
+
+    &:hover {
+      color: var(--chickadee-color-interactive-primary-hover, light-dark(#004d99, #b9dafc));
+      text-decoration-color: var(--chickadee-color-interactive-primary-hover, light-dark(#004d99, #b9dafc));
+      text-underline-offset: max(6px, 0.33em);
+    }
+  }
+}
+
+:host([state="active"]) #label {
+  font-weight: 700;
+}
+
+/* Description */
+
+#description {
+  grid-area: description;
+  align-self: start;
+  margin: 0;
+  color: var(--_description-color);
+  font-size: var(--chickadee-font-size-body-text-sm, 14px);
+}
