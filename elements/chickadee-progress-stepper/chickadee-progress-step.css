@@ -10,25 +10,30 @@
   --_label-color: var(--chickadee-color-text-primary, light-dark(#151515, white));
   --_description-color: var(--chickadee-color-text-secondary, light-dark(#4d4d4d, #c7c7c7));
   --_surface: light-dark(var(--chickadee-color-surface, white), var(--chickadee-color-surface, #151515));
+
+  /* Default: horizontal layout (icon on top, label and description below) */
+  --_grid-areas:
+    'icon'
+    'label'
+    'description';
+  --_grid-columns: auto;
+  --_grid-rows: var(--_icon-size) auto 1fr;
 }
 
 #container {
   position: relative;
   display: grid;
-  grid-template-areas:
-    'icon label'
-    '.    description';
-  grid-template-columns: var(--_icon-size) 1fr;
-  grid-template-rows: auto auto;
-  gap: var(--chickadee-space-xs, 4px) var(--chickadee-space-md, 8px);
-  align-items: center;
+  grid-template-areas: var(--_grid-areas);
+  grid-template-columns: var(--_grid-columns);
+  grid-template-rows: var(--_grid-rows);
+  gap: var(--chickadee-space-xs, 4px);
   inline-size: 100%;
   font-family: inherit;
   font-size: var(--chickadee-font-size-body-text-md, 16px);
   line-height: var(--chickadee-font-line-height-body-text, 1.5);
 }
 
-/* Horizontal connecting line between steps */
+/* Horizontal connecting line (default) */
 :host(:not(:first-of-type)) #container::before {
   content: '';
   position: absolute;
@@ -93,7 +98,7 @@ chickadee-icon {
 
 #label {
   grid-area: label;
-  align-self: center;
+  align-self: start;
   color: var(--_label-color);
   font-weight: 400;
   text-decoration: none;
