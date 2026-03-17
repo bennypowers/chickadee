@@ -42,26 +42,26 @@ button {
   transition:
     background 150ms ease,
     color 150ms ease;
-}
 
-button:hover,
-button:focus-visible {
-  --_background: var(--chickadee-color-interactive-fill-plain-hover, light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15)));
-}
+  &:hover,
+  &:focus-visible {
+    --_background: var(--chickadee-color-interactive-fill-plain-hover, light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15)));
+  }
 
-button:active {
-  --_background: var(--chickadee-color-interactive-fill-plain-active, light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15)));
-}
+  &:active {
+    --_background: var(--chickadee-color-interactive-fill-plain-active, light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15)));
+  }
 
-button:focus-visible {
-  outline: var(--_focus-ring-width) solid var(--_focus-ring-color);
-  outline-offset: var(--_focus-ring-width);
-}
+  &:focus-visible {
+    outline: var(--_focus-ring-width) solid var(--_focus-ring-color);
+    outline-offset: var(--_focus-ring-width);
+  }
 
-:host([disabled]) button {
-  cursor: not-allowed;
-  --_color: var(--chickadee-color-text-status-disabled, light-dark(#a3a3a3, #707070));
-  --_background: transparent;
+  :host([disabled]) & {
+    cursor: not-allowed;
+    --_color: var(--chickadee-color-text-status-disabled, light-dark(#a3a3a3, #707070));
+    --_background: transparent;
+  }
 }
 
 ::slotted(*) {
