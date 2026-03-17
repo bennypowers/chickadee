@@ -1,0 +1,116 @@
+:host {
+  display: inline-block;
+  text-align: center;
+  width: max-content;
+  min-height: 0;
+}
+
+::slotted(*) {
+  margin-block-start: var(--chickadee-space-lg, 16px);
+}
+
+::slotted(p) {
+  font-family: inherit;
+  font-weight: 400;
+  line-height: var(--chickadee-font-line-height-body-text, 1.5);
+}
+
+svg {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  display: block;
+  margin-inline: auto;
+}
+
+circle {
+  width: 100%;
+  height: 100%;
+  stroke-linecap: round;
+}
+
+.track {
+  stroke: var(--chickadee-color-border-track, light-dark(#e0e0e0, #383838));
+  animation-duration: 0;
+}
+
+/**
+ * Spinner indicator color. Maps to `--chickadee-color-interactive-primary-default`
+ * design token. Override to change the spinner accent color.
+ */
+.indicator {
+  transform-origin: 50% 50%;
+  stroke: var(--chickadee-spinner-color, var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9)));
+  stroke-dasharray: 283;
+  stroke-dashoffset: 280;
+  transform: rotate(-90deg);
+  animation: spin 1.4s ease-out infinite;
+}
+
+/* Large (default) */
+
+:host([size="lg"]) svg,
+:host(:not([size])) svg {
+  width: 64px;
+  stroke-width: var(--chickadee-border-width-spinner-lg, 6px);
+}
+
+:host([size="lg"]) ::slotted(p),
+:host(:not([size])) ::slotted(p) {
+  font-size: 1.125rem;
+}
+
+/* Medium */
+
+:host([size="md"]) svg {
+  width: 48px;
+  stroke-width: var(--chickadee-border-width-spinner-md, 4px);
+}
+
+:host([size="md"]) ::slotted(p) {
+  font-size: var(--chickadee-font-size-body-text-md, 16px);
+}
+
+/* Small */
+
+:host([size="sm"]) svg {
+  width: 16px;
+  stroke-width: var(--chickadee-border-width-spinner-sm, 3px);
+}
+
+:host([size="sm"]) .indicator {
+  animation-name: spin-sm;
+  stroke-dasharray: 71;
+  stroke-dashoffset: 71;
+}
+
+:host([size="sm"]) ::slotted(p) {
+  font-size: var(--chickadee-font-size-body-text-sm, 14px);
+}
+
+@keyframes spin {
+  50% {
+    stroke-dashoffset: 0;
+  }
+
+  75% {
+    transform: rotate(280deg);
+  }
+
+  100% {
+    stroke-dashoffset: -283;
+  }
+}
+
+@keyframes spin-sm {
+  50% {
+    stroke-dashoffset: 0;
+  }
+
+  75% {
+    transform: rotate(280deg);
+  }
+
+  100% {
+    stroke-dashoffset: -71;
+  }
+}

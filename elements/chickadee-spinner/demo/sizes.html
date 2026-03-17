@@ -1,0 +1,27 @@
+<meta itemprop="name" content="Sizes">
+<meta itemprop="description" content="Spinner in all three sizes with text labels.">
+
+<section class="spinner-sizes">
+  <chickadee-spinner size="lg">
+    <p>Loading...</p>
+  </chickadee-spinner>
+  <chickadee-spinner size="md">
+    <p>Loading...</p>
+  </chickadee-spinner>
+  <chickadee-spinner size="sm">
+    <p>Loading...</p>
+  </chickadee-spinner>
+</section>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-spinner/chickadee-spinner.js';
+</script>
+
+<style>
+  .spinner-sizes {
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: var(--chickadee-space-2xl, 32px);
+  }
+</style>
