@@ -33,14 +33,16 @@
   line-height: var(--chickadee-font-line-height-body-text, 1.5);
 }
 
-/* Horizontal connecting line (default) */
-:host(:not(:first-of-type)) #container::before {
+/* Connecting line from icon center to the right edge of the step.
+   The next step's line from its left edge to its icon center completes the gap.
+   Icons sit on top (z-index 1) with opaque backgrounds. */
+:host(:not(:last-of-type)) #container::before {
   content: '';
   position: absolute;
   inset-block-start: calc(var(--_icon-size) / 2 - 1px);
-  inset-inline-end: calc(100% - 1px);
+  inset-inline-start: calc(var(--_icon-size) / 2);
+  inset-inline-end: 0;
   block-size: 2px;
-  inline-size: 100vw;
   background: var(--_line-color);
   pointer-events: none;
   z-index: 0;
@@ -50,7 +52,7 @@
 
 :is(chickadee-icon, .no-icon) {
   grid-area: icon;
-  place-self: center;
+  justify-self: start;
   block-size: var(--_icon-size);
   inline-size: var(--_icon-size);
   border: var(--_icon-border) solid var(--_line-color);
