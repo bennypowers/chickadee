@@ -80,6 +80,7 @@ React 18 treats custom elements like unknown HTML elements — all props are set
 **Option A: Use `@lit/react` wrappers (recommended)**
 
 ```tsx
+import React from 'react';
 import { createComponent } from '@lit/react';
 import { MyElement } from 'my-element-library';
 

@@ -106,9 +106,16 @@ export class MyButtonPage {
     this.host = page.locator('my-button');
     this.slotDefault = this.host.locator(':scope > :not([slot])');
     this.slotIcon = this.host.locator('[slot="icon"]');
-    this.partButton = this.host.locator('internal:part=button');
-    // Note: Playwright doesn't support ::part() in locators natively,
-    // use page.locator('my-button') then evaluate for part queries.
+  }
+
+  /**
+   * Access the internal button element via shadowRoot query.
+   * Playwright doesn't support ::part() in locators natively.
+   */
+  async partButton() {
+    return this.host.evaluateHandle((el) =>
+      el.shadowRoot?.querySelector('[part="button"]') ?? null,
+    );
   }
 
   // --- Navigation ---
@@ -152,13 +159,26 @@ export class MyButtonPage {
   /**
    * Returns a promise that resolves when the element fires the given event.
    * Call this BEFORE triggering the interaction.
+   *
+   * Note: Playwright evaluate can only return structured-cloneable values,
+   * so this returns a serializable payload instead of the raw Event object.
    */
-  async waitForEvent<T = unknown>(eventName: string): Promise<T> {
+  async waitForEvent<T = unknown>(
+    eventName: string,
+  ): Promise<{ type: string; detail: T | null }> {
     return this.host.evaluate(
       (el, name) =>
-        new Promise<T>((resolve) =>
-          el.addEventListener(name, (ev) => resolve(ev as T), { once: true }),
-        ),
+        new Promise((resolve) => {
+          el.addEventListener(
+            name,
+            (ev) =>
+              resolve({
+                type: ev.type,
+                detail: (ev as CustomEvent<T>).detail ?? null,
+              }),
+            { once: true },
+          );
+        }),
       eventName,
     );
   }
@@ -272,9 +292,10 @@ test.describe('<my-button>', () => {
 
   test.describe('events', () => {
     test('fires click event', async () => {
-      const event = button.waitForEvent('click');
+      const eventPromise = button.waitForEvent('click');
       await button.click();
-      expect(await event).toBeTruthy();
+      const event = await eventPromise;
+      expect(event.type).toBe('click');
     });
   });
 

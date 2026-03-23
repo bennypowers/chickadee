@@ -179,7 +179,7 @@ Angular content projection (`<ng-content>`) and web component slots are differen
 Custom elements don't work with Angular's `ngModel` or reactive forms out of the box. Create a `ControlValueAccessor`:
 
 ```ts
-import { Directive, forwardRef } from '@angular/core';
+import { Directive, ElementRef, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Directive({
@@ -249,7 +249,7 @@ Extend the `HTMLElementTagNameMap` so Angular's template type checker understand
 
 ```ts
 // custom-elements.d.ts
-declare namespace HTMLElementTagNameMap {
+declare global {
   interface HTMLElementTagNameMap {
     'my-element': import('my-element-library').MyElement;
   }
@@ -272,7 +272,7 @@ Present the integration with:
 ## Guidelines
 
 - **Always include `CUSTOM_ELEMENTS_SCHEMA`**: Without it, Angular throws template errors for unknown elements
-- **Use `[property]` binding, not `attr.`**: Angular's property binding sets properties directly, which custom elements handle correctly
+- **Prefer `[property]` binding for element properties**: Angular's property binding sets properties directly, which custom elements handle correctly. Use `[attr.]` for attributes without corresponding JS properties (ARIA attributes, `data-*`, etc.)
 - **Cast events to `CustomEvent`**: Angular's template type system doesn't know about `CustomEvent.detail`
 - **Don't confuse `ng-content` with `slot`**: Angular content projection and web component slots are separate systems
 - **ControlValueAccessor is required for forms**: Without it, `ngModel` and reactive forms won't work with custom elements

@@ -402,7 +402,7 @@ If event detail contains data, use class fields on the event, e.g.
 export class DialogCloseEvent extends Event {
   reason: string;
   constructor(reason: string) {
-    super('close', { bubbles: true, cancellable: true });
+    super('close', { bubbles: true, cancelable: true });
     this.reason = reason;
   }
 }
