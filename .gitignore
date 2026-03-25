@@ -1,3 +1,5 @@
 node_modules/
 custom-elements.json
+_site/
 claude.local.md
+!.claude/skills
