@@ -8,6 +8,7 @@
     "build:tokens": "asimonim convert -o tokens/chickadee.tokens.json",
     "build:manifest": "cem generate",
     "build": "npm run build:tokens && npm run build:manifest",
+    "build:site": "cem serve --build --base-path /chickadee/ -o _site/",
     "start": "cem serve"
   },
   "exports": {
