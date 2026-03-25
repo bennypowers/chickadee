@@ -28,7 +28,6 @@ jobs:
         with:
           go-version: stable
 
-      - run: go install bennypowers.dev/cem@v0.9.10
       - run: go install bennypowers.dev/asimonim@latest
 
       - run: npm ci
