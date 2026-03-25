@@ -52,6 +52,10 @@ apply engineering judgment and a critical eye when translating designs into comp
 - Borders that change width on hover use `box-shadow: inset` to avoid layout
   shift
 
+## Skills
+
+Use the cem claude-code plugin's skills and resources
+
 ## Memory
 
 Update this file with important design-to-dev context provided by the user, as you go
