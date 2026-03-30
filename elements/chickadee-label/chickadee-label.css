@@ -1,0 +1,139 @@
+:host {
+  /**
+   * Internal background color. Varies by `color` attribute; references
+   * `--chickadee-color-surface-status-*` design tokens.
+   */
+  --_background: light-dark(#f2f2f2, #383838);
+
+  /**
+   * Internal text/icon color. Varies by `color` attribute; references
+   * `--chickadee-color-status-*` design tokens.
+   */
+  --_color: light-dark(#1f1f1f, white);
+
+  /**
+   * Internal border color for outlined variant. References the computed
+   * `--_color` value via the `--chickadee-border-width-sm` design token.
+   */
+  --_border-color: transparent;
+
+  display: inline-flex;
+}
+
+/* Color variants */
+
+:host([color="gray"]) {
+  --_background: light-dark(#f2f2f2, #383838);
+  --_color: light-dark(#1f1f1f, white);
+}
+
+:host([color="blue"]) {
+  --_background: light-dark(#e0f0ff, #003d7a);
+  --_color: light-dark(#004d99, #b9dafc);
+}
+
+:host([color="green"]) {
+  --_background: light-dark(#d2f0be, #1a3a08);
+  --_color: light-dark(#204d00, #afdc8f);
+}
+
+:host([color="red"]) {
+  --_background: light-dark(#fbbea8, #49200a);
+  --_color: light-dark(#b1380b, #f89b78);
+}
+
+:host([color="orange"]) {
+  --_background: light-dark(#fff3cd, #3d2e07);
+  --_color: light-dark(#dca614, #ffe072);
+}
+
+:host([color="purple"]) {
+  --_background: light-dark(#e8e2f8, #1e1340);
+  --_color: light-dark(#3d2785, #d0c5f4);
+}
+
+:host([color="teal"]) {
+  --_background: light-dark(#c9eeee, #0a3939);
+  --_color: light-dark(#147878, #63bdbd);
+}
+
+/* Outlined variant */
+
+:host([variant="outlined"]) {
+  --_background: transparent;
+  --_border-color: var(--_color);
+}
+
+/* Compact */
+
+:host([compact]) [part="container"] {
+  padding: 2px var(--chickadee-space-sm, 6px);
+}
+
+/* Disabled */
+
+:host([disabled]) {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Container */
+
+[part="container"] {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--chickadee-space-xs, 4px);
+  border-radius: var(--chickadee-border-radius-pill, 64px);
+  padding: var(--chickadee-space-xs, 4px) var(--chickadee-space-md, 8px);
+  font-family: inherit;
+  font-size: var(--chickadee-font-size-body-text-sm, 14px);
+  line-height: var(--chickadee-line-height-body-text, 1.5);
+  color: var(--_color);
+  background: var(--_background);
+  box-shadow: inset 0 0 0 0 transparent;
+  transition:
+    background 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease;
+
+  :host([variant="outlined"]) & {
+    box-shadow: inset 0 0 0 var(--chickadee-border-width-sm, 1px) var(--_border-color);
+  }
+}
+
+/* Icon sizing */
+
+chickadee-icon {
+  --chickadee-icon-size: var(--chickadee-size-icon-sm, 14px);
+}
+
+::slotted([slot="icon"]) {
+  display: inline-flex;
+  width: var(--chickadee-size-icon-sm, 14px);
+  height: var(--chickadee-size-icon-sm, 14px);
+}
+
+/* Close button */
+
+[part="close"] {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  border-radius: var(--chickadee-border-radius-pill, 64px);
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus-visible {
+    outline: var(--chickadee-border-width-lg, 3px) solid var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
+    outline-offset: var(--chickadee-border-width-sm, 1px);
+  }
+
+  :host([disabled]) & {
+    cursor: not-allowed;
+  }
+}
