@@ -1,0 +1,50 @@
+/**
+ * @cssprop [--chickadee-breadcrumb-separator-color=var(--chickadee-color-border-subtle)] - Separator character color. Defaults to the `--chickadee-color-border-subtle` design token.
+ */
+:host {
+  --_separator-color:
+    var(--chickadee-breadcrumb-separator-color,
+      var(--chickadee-color-border-subtle,
+        light-dark(#e0e0e0, #383838)));
+  display: block;
+  font-size: var(--chickadee-font-size-body-text-sm, 14px);
+  line-height: var(--chickadee-line-height-body-text, 1.5);
+}
+
+ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--chickadee-space-xs, 4px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+::slotted(*) {
+  display: inline-flex;
+  align-items: center;
+}
+
+::slotted(:not(:last-child))::after {
+  content: '/';
+  margin-inline-start: var(--chickadee-space-xs, 4px);
+  color: var(--_separator-color);
+  pointer-events: none;
+}
+
+::slotted(a) {
+  color:
+    var(--chickadee-color-text-interactive-default,
+      light-dark(#0066cc, #b9dafc));
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+::slotted([aria-current]) {
+  color: inherit;
+  font-weight: var(--chickadee-font-weight-medium, 500);
+}
