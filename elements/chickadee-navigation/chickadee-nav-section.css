@@ -1,0 +1,48 @@
+/**
+ * @cssprop [--chickadee-color-interactive-primary-default] - Focus outline color for the heading button. References the `--chickadee-color-interactive-primary-default` design token with light-dark() theme fallback.
+ * @cssprop [--chickadee-font-size-body-text-xs] - Section heading font size. References the `--chickadee-font-size-body-text-xs` design token.
+ * @cssprop [--chickadee-font-weight-bold] - Section heading font weight. References the `--chickadee-font-weight-bold` design token.
+ */
+:host {
+  display: block;
+}
+
+[part="heading"] {
+  all: unset;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding:
+    var(--chickadee-space-sm, 6px)
+    var(--chickadee-space-md, 8px);
+  font-size: var(--chickadee-font-size-body-text-xs, 12px);
+  font-weight: var(--chickadee-font-weight-bold, 700);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: light-dark(#4d4d4d, #c7c7c7);
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &:hover {
+    color: light-dark(#1f1f1f, white);
+  }
+
+  &:focus-visible {
+    outline:
+      var(--chickadee-border-width-lg, 3px) solid
+      var(--chickadee-color-interactive-primary-default,
+        light-dark(#0066cc, #92c5f9));
+    outline-offset: -3px;
+    border-radius: var(--chickadee-border-radius-sm, 4px);
+  }
+}
+
+[part="items"] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--chickadee-space-xs, 4px);
+}
+
+:host(:not([expanded])) [part="items"] {
+  display: none;
+}

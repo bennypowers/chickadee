@@ -1,0 +1,78 @@
+/**
+ * @cssprop [--chickadee-color-interactive-fill-plain-hover] - Hover and focus background for the navigation item. References the `--chickadee-color-interactive-fill-plain-hover` design token with light-dark() theme fallback.
+ * @cssprop [--chickadee-color-interactive-primary-default] - Active item indicator, focus outline, and active text color. References the `--chickadee-color-interactive-primary-default` design token with light-dark() theme fallback.
+ * @cssprop [--chickadee-space-xl] - Sub-navigation indentation. References the `--chickadee-space-xl` design token.
+ */
+:host {
+  display: block;
+}
+
+[part="link"] {
+  all: unset;
+  display: flex;
+  align-items: center;
+  gap: var(--chickadee-space-md, 8px);
+  padding:
+    var(--chickadee-space-sm, 6px)
+    var(--chickadee-space-md, 8px);
+  border-radius: var(--chickadee-border-radius-sm, 4px);
+  cursor: pointer;
+  font-size: var(--chickadee-font-size-body-text-sm, 14px);
+  font-weight: var(--chickadee-font-weight-regular, 400);
+  color: light-dark(#1f1f1f, white);
+  text-decoration: none;
+  box-sizing: border-box;
+  width: 100%;
+
+  &:hover {
+    background:
+      var(--chickadee-color-interactive-fill-plain-hover,
+        light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15)));
+  }
+
+  &:focus-visible {
+    outline:
+      var(--chickadee-border-width-lg, 3px) solid
+      var(--chickadee-color-interactive-primary-default,
+        light-dark(#0066cc, #92c5f9));
+    outline-offset: -3px;
+  }
+}
+
+:host([active]) [part="link"] {
+  font-weight: var(--chickadee-font-weight-bold, 700);
+  color:
+    var(--chickadee-color-interactive-primary-default,
+      light-dark(#0066cc, #92c5f9));
+  box-shadow:
+    inset 3px 0 0 0
+    var(--chickadee-color-interactive-primary-default,
+      light-dark(#0066cc, #92c5f9));
+}
+
+[part="text"] {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[part="expand-icon"] {
+  --chickadee-icon-size: var(--chickadee-size-icon-sm, 14px);
+  transition: rotate 0.2s ease;
+}
+
+:host([expanded]) [part="expand-icon"] {
+  rotate: 180deg;
+}
+
+[part="subnav"] {
+  padding-inline-start: var(--chickadee-space-xl, 24px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--chickadee-space-xs, 4px);
+}
+
+:host(:not([expanded])) [part="subnav"] {
+  display: none;
+}
