@@ -1,0 +1,19 @@
+/**
+ * @cssprop [--chickadee-accordion-border-color=var(--chickadee-color-border-subtle, light-dark(#e0e0e0, #383838))] - Border color for the bordered variant. References the `--chickadee-color-border-subtle` design token.
+ * @cssprop [--chickadee-accordion-border-radius=var(--chickadee-border-radius-default, 16px)] - Corner radius for the bordered variant. References the `--chickadee-border-radius-default` design token.
+ */
+:host {
+  --_border-color: var(--chickadee-accordion-border-color, var(--chickadee-color-border-subtle, light-dark(#e0e0e0, #383838)));
+  --_border-radius: var(--chickadee-accordion-border-radius, var(--chickadee-border-radius-default, 16px));
+
+  display: block;
+}
+
+:host([bordered]) {
+  box-shadow:
+    inset 0 0 0
+    var(--chickadee-border-width-sm, 1px)
+    var(--_border-color);
+  border-radius: var(--_border-radius);
+  overflow: hidden;
+}
