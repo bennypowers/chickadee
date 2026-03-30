@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: var(--chickadee-space-xl, 24px);
+}
+
+[part="stepper"] {
+  padding: 0 var(--chickadee-space-xl, 24px);
+}
+
+[part="body"] {
+  flex: 1;
+  padding: 0 var(--chickadee-space-xl, 24px);
+}
+
+[part="footer"] {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--chickadee-space-md, 8px);
+  padding:
+    var(--chickadee-space-lg, 16px)
+    var(--chickadee-space-xl, 24px);
+  box-shadow:
+    inset 0 1px 0 0
+    var(--chickadee-color-border-subtle,
+      light-dark(#e0e0e0, #383838));
+}
