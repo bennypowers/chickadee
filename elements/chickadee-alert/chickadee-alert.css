@@ -1,0 +1,113 @@
+/**
+ * @cssprop [--chickadee-color-status-info] - Accent and icon color for info status. Maps to the `--chickadee-color-status-info` design token.
+ * @cssprop [--chickadee-color-status-success] - Accent and icon color for success status. Maps to the `--chickadee-color-status-success` design token.
+ * @cssprop [--chickadee-color-status-warning] - Accent and icon color for warning status. Maps to the `--chickadee-color-status-warning` design token.
+ * @cssprop [--chickadee-color-status-danger] - Accent and icon color for danger status. Maps to the `--chickadee-color-status-danger` design token.
+ * @cssprop [--chickadee-color-status-neutral] - Accent and icon color for neutral status. Maps to the `--chickadee-color-status-neutral` design token.
+ */
+:host {
+  display: block;
+}
+
+[part="container"] {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--chickadee-space-md, 8px);
+  padding: var(--chickadee-space-lg, 16px);
+  background: var(--_background);
+  box-shadow:
+    inset var(--chickadee-border-width-lg, 3px) 0 0 0
+    var(--_accent-color);
+  font-size: var(--chickadee-font-size-body-text-sm, 14px);
+  line-height: var(--chickadee-line-height-body-text, 1.5);
+}
+
+/* Status colors */
+
+:host([status="info"]) {
+  --_accent-color: var(--chickadee-color-status-info, light-dark(#3d2785, #d0c5f4));
+  --_background: var(--chickadee-color-surface-status-info, light-dark(#e8e2f8, #1e1340));
+  --_icon-color: var(--chickadee-color-status-info, light-dark(#3d2785, #d0c5f4));
+}
+
+:host([status="success"]) {
+  --_accent-color: var(--chickadee-color-status-success, light-dark(#6ec04c, #afdc8f));
+  --_background: var(--chickadee-color-surface-status-success, light-dark(#d2f0be, #1a3a08));
+  --_icon-color: var(--chickadee-color-status-success, light-dark(#6ec04c, #afdc8f));
+}
+
+:host([status="warning"]) {
+  --_accent-color: var(--chickadee-color-status-warning, light-dark(#dca614, #ffe072));
+  --_background: var(--chickadee-color-surface-status-warning, light-dark(#fff3cd, #3d2e07));
+  --_icon-color: var(--chickadee-color-status-warning, light-dark(#dca614, #ffe072));
+}
+
+:host([status="danger"]) {
+  --_accent-color: var(--chickadee-color-status-danger, light-dark(#b1380b, #f0561d));
+  --_background: var(--chickadee-color-surface-status-danger, light-dark(#fbbea8, #49200a));
+  --_icon-color: var(--chickadee-color-status-danger, light-dark(#b1380b, #f0561d));
+}
+
+:host([status="neutral"]),
+:host(:not([status])) {
+  --_accent-color: var(--chickadee-color-status-neutral, light-dark(#4d4d4d, #c7c7c7));
+  --_background: var(--chickadee-color-surface-status-neutral, light-dark(#f2f2f2, #383838));
+  --_icon-color: var(--chickadee-color-status-neutral, light-dark(#4d4d4d, #c7c7c7));
+}
+
+/* Toast variant */
+
+:host([variant="toast"]) [part="container"] {
+  border-radius: var(--chickadee-border-radius-default, 16px);
+  box-shadow:
+    inset var(--chickadee-border-width-lg, 3px) 0 0 0 var(--_accent-color),
+    var(--chickadee-shadow-md, 0 4px 8px 1px rgba(21, 21, 21, 0.2));
+}
+
+[part="icon"] {
+  color: var(--_icon-color);
+  flex-shrink: 0;
+  padding-block-start: 1px;
+}
+
+[part="content"] {
+  flex: 1;
+}
+
+[part="heading-text"] {
+  display: block;
+  font-weight: var(--chickadee-font-weight-bold, 700);
+  margin-block-end: var(--chickadee-space-xs, 4px);
+}
+
+[part="dismiss"] {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-self: flex-start;
+  padding: var(--chickadee-space-xs, 4px);
+  border-radius: var(--chickadee-border-radius-sm, 4px);
+  color: inherit;
+  flex-shrink: 0;
+  --chickadee-icon-size: var(--chickadee-size-icon-sm, 14px);
+
+  &:hover {
+    background:
+      var(--chickadee-color-interactive-fill-plain-hover,
+        light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15)));
+  }
+
+  &:focus-visible {
+    outline:
+      var(--chickadee-border-width-lg, 3px) solid
+      var(--chickadee-color-interactive-primary-default,
+        light-dark(#0066cc, #92c5f9));
+    outline-offset: 2px;
+  }
+}
+
+[name="actions"] {
+  display: flex;
+  gap: var(--chickadee-space-sm, 6px);
+  margin-block-start: var(--chickadee-space-md, 8px);
+}

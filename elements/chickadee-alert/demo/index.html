@@ -1,0 +1,28 @@
+<meta itemprop="description" content="Alert variants, statuses, and dismissable behavior.">
+<chickadee-alert heading="Info alert" status="info">
+  <p>This is an informational alert.</p>
+</chickadee-alert>
+<chickadee-alert heading="Success" status="success" dismissable>
+  <p>Operation completed successfully.</p>
+</chickadee-alert>
+<chickadee-alert heading="Warning" status="warning">
+  <p>Please review before proceeding.</p>
+</chickadee-alert>
+<chickadee-alert heading="Danger" status="danger" dismissable>
+  <p>An error occurred.</p>
+</chickadee-alert>
+<chickadee-alert heading="Neutral" status="neutral">
+  <p>A neutral alert with no specific status emphasis.</p>
+</chickadee-alert>
+<chickadee-alert heading="With actions" status="info" dismissable>
+  <p>Review the details and take action.</p>
+  <a slot="actions" href="#">View details</a>
+  <a slot="actions" href="#">Dismiss all</a>
+</chickadee-alert>
+<chickadee-alert variant="toast" status="info" heading="Toast alert" dismissable>
+  <p>This alert appears as a toast notification.</p>
+</chickadee-alert>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-alert/chickadee-alert.js';
+</script>
