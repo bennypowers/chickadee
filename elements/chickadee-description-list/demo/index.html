@@ -1,0 +1,35 @@
+<meta itemprop="description" content="Vertical, horizontal, and compact description list orientations with sample key-value data.">
+
+<h3>Vertical (default)</h3>
+<chickadee-description-list>
+  <dt>Name</dt>
+  <dd>Jane Doe</dd>
+  <dt>Email</dt>
+  <dd>jane@example.com</dd>
+  <dt>Role</dt>
+  <dd>Administrator</dd>
+</chickadee-description-list>
+
+<h3>Horizontal</h3>
+<chickadee-description-list orientation="horizontal">
+  <dt>Status</dt>
+  <dd>Active</dd>
+  <dt>Created</dt>
+  <dd>2026-01-15</dd>
+  <dt>Last login</dt>
+  <dd>2 hours ago</dd>
+</chickadee-description-list>
+
+<h3>Compact</h3>
+<chickadee-description-list compact orientation="horizontal">
+  <dt>CPU</dt>
+  <dd>68%</dd>
+  <dt>Memory</dt>
+  <dd>4.2 GB</dd>
+  <dt>Disk</dt>
+  <dd>120 GB free</dd>
+</chickadee-description-list>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-description-list/chickadee-description-list.js';
+</script>

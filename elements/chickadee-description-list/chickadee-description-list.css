@@ -1,0 +1,44 @@
+/**
+ * @cssprop [--chickadee-description-list-gap=var(--chickadee-space-lg)] - Gap between term/description groups. Maps to the `--chickadee-space-lg` design token.
+ */
+:host {
+  --_gap:
+    var(--chickadee-description-list-gap,
+      var(--chickadee-space-lg, 16px));
+  display: block;
+}
+
+:host([compact]) {
+  --_gap: var(--chickadee-space-md, 8px);
+}
+
+dl {
+  display: grid;
+  gap: var(--_gap);
+  margin: 0;
+  padding: 0;
+}
+
+:host([orientation="horizontal"]) dl {
+  grid-template-columns: auto 1fr;
+  column-gap: var(--chickadee-space-xl, 24px);
+}
+
+::slotted(dt) {
+  font-weight: var(--chickadee-font-weight-bold, 700);
+  font-size: var(--chickadee-font-size-body-text-md, 16px);
+  line-height: var(--chickadee-line-height-body-text, 1.5);
+  margin: 0;
+}
+
+::slotted(dd) {
+  font-weight: var(--chickadee-font-weight-regular, 400);
+  font-size: var(--chickadee-font-size-body-text-md, 16px);
+  line-height: var(--chickadee-line-height-body-text, 1.5);
+  color: light-dark(#4d4d4d, #c7c7c7);
+  margin: 0;
+}
+
+:host([orientation="vertical"]) ::slotted(dd) {
+  margin-block-start: var(--chickadee-space-xs, 4px);
+}
