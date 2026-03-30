@@ -1,0 +1,27 @@
+/**
+ * @cssprop [--chickadee-navigation-width=240px] - Sidebar width. Defaults to 240px; overridden to 64px when `collapsed`. Maps to the `--chickadee-navigation-width` design token.
+ */
+:host {
+  container-type: style;
+  --chickadee-elevation: 1;
+  --_width: var(--chickadee-navigation-width, 240px);
+  display: block;
+  width: var(--_width);
+  background:
+    var(--chickadee-color-surface-raised,
+      light-dark(white, #1f1f1f));
+  height: 100%;
+  overflow-y: auto;
+  transition: width 0.2s ease;
+}
+
+:host([collapsed]) {
+  --_width: 64px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--chickadee-space-xs, 4px);
+  padding: var(--chickadee-space-md, 8px);
+}
