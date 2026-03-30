@@ -1,0 +1,56 @@
+/**
+ * @cssprop [--chickadee-toggle-padding-block=var(--chickadee-space-sm, 6px)] - Block padding for the toggle button. References the `--chickadee-space-sm` design token.
+ * @cssprop [--chickadee-toggle-padding-inline=var(--chickadee-space-lg, 16px)] - Inline padding for the toggle button. References the `--chickadee-space-lg` design token.
+ * @cssprop [--chickadee-toggle-font-size=var(--chickadee-font-size-body-text-sm, 14px)] - Font size for toggle label text. References the `--chickadee-font-size-body-text-sm` design token.
+ */
+:host {
+  --_padding-block: var(--chickadee-toggle-padding-block, var(--chickadee-space-sm, 6px));
+  --_padding-inline: var(--chickadee-toggle-padding-inline, var(--chickadee-space-lg, 16px));
+  --_font-size: var(--chickadee-toggle-font-size, var(--chickadee-font-size-body-text-sm, 14px));
+
+  display: inline-flex;
+}
+
+button {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--chickadee-space-xs, 4px);
+  padding: var(--_padding-block) var(--_padding-inline);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--_font-size);
+  font-weight: var(--chickadee-font-weight-medium, 500);
+  color: light-dark(#1f1f1f, white);
+  box-sizing: border-box;
+  /* Vertical separator between toggles */
+  box-shadow:
+    inset -1px 0 0 0
+    var(--chickadee-color-border-subtle, light-dark(#e0e0e0, #383838));
+
+  &:hover {
+    background: var(--chickadee-color-interactive-fill-plain-hover, light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15)));
+  }
+
+  &:focus-visible {
+    outline:
+      var(--chickadee-border-width-lg, 3px)
+      solid
+      var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
+    outline-offset: -3px;
+  }
+}
+
+:host(:last-of-type) button {
+  box-shadow: none;
+}
+
+:host([selected]) button {
+  background: var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
+  color: var(--chickadee-color-text-primary-inverse, light-dark(white, #1f1f1f));
+}
+
+:host([disabled]) button {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

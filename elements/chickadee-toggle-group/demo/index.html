@@ -1,0 +1,19 @@
+<meta itemprop="name" content="Toggle Group">
+<meta itemprop="description" content="Toggle groups for single and multiple selection, with icon support.">
+
+<chickadee-toggle-group>
+  <chickadee-toggle selected value="list">List</chickadee-toggle>
+  <chickadee-toggle value="grid">Grid</chickadee-toggle>
+  <chickadee-toggle value="chart">Chart</chickadee-toggle>
+</chickadee-toggle-group>
+
+<h3>Multiple selection</h3>
+<chickadee-toggle-group multiple>
+  <chickadee-toggle value="bold" icon="info">Bold</chickadee-toggle>
+  <chickadee-toggle value="italic">Italic</chickadee-toggle>
+  <chickadee-toggle value="underline">Underline</chickadee-toggle>
+</chickadee-toggle-group>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-toggle-group/chickadee-toggle-group.js';
+</script>
