@@ -1,0 +1,99 @@
+/**
+ * @cssprop [--chickadee-slider-track-color=var(--chickadee-color-border-subtle)] - Track background. Defaults to the `--chickadee-color-border-subtle` design token.
+ * @cssprop [--chickadee-slider-fill-color=var(--chickadee-color-interactive-primary-default)] - Filled portion of the track. Defaults to the `--chickadee-color-interactive-primary-default` design token.
+ * @cssprop [--chickadee-slider-thumb-color=var(--chickadee-color-interactive-primary-default)] - Thumb handle color. Defaults to the `--chickadee-color-interactive-primary-default` design token.
+ */
+:host {
+  --_track-color:
+    var(--chickadee-slider-track-color,
+      var(--chickadee-color-border-subtle,
+        light-dark(#e0e0e0, #383838)));
+  --_fill-color:
+    var(--chickadee-slider-fill-color,
+      var(--chickadee-color-interactive-primary-default,
+        light-dark(#0066cc, #92c5f9)));
+  --_thumb-color:
+    var(--chickadee-slider-thumb-color,
+      var(--chickadee-color-interactive-primary-default,
+        light-dark(#0066cc, #92c5f9)));
+  --_fill-percent: 50%;
+  display: block;
+}
+
+:host([disabled]) {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+[part="label"] {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--chickadee-space-md, 8px);
+  font-size: var(--chickadee-font-size-body-text-sm, 14px);
+  font-weight: var(--chickadee-font-weight-medium, 500);
+  line-height: var(--chickadee-line-height-body-text, 1.5);
+  margin-block-end: var(--chickadee-space-sm, 6px);
+  cursor: pointer;
+}
+
+[part="value"] {
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--chickadee-font-weight-regular, 400);
+}
+
+[part="track-container"] {
+  display: flex;
+  align-items: center;
+  gap: var(--chickadee-space-md, 8px);
+}
+
+input[type="range"] {
+  appearance: none;
+  flex: 1;
+  height: 4px;
+  border-radius: var(--chickadee-border-radius-pill, 64px);
+  background: linear-gradient(
+    to right,
+    var(--_fill-color) var(--_fill-percent),
+    var(--_track-color) var(--_fill-percent)
+  );
+  outline: none;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: var(--chickadee-border-width-lg, 3px) solid var(--_fill-color);
+    outline-offset: 4px;
+  }
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--_thumb-color);
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: scale 0.15s ease;
+  }
+
+  &::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--_thumb-color);
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: scale 0.15s ease;
+  }
+
+  &::-webkit-slider-thumb:hover {
+    scale: 1.2;
+  }
+
+  &::-moz-range-thumb:hover {
+    scale: 1.2;
+  }
+}
