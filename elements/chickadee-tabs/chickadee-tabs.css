@@ -1,0 +1,30 @@
+/**
+ * @cssprop [--chickadee-tabs-border-color=var(--chickadee-color-border-subtle, light-dark(#e0e0e0, #383838))] - Border color for the tablist indicator line. References the `--chickadee-color-border-subtle` design token.
+ */
+:host {
+  --_border-color: var(--chickadee-tabs-border-color, var(--chickadee-color-border-subtle, light-dark(#e0e0e0, #383838)));
+  display: block;
+}
+
+:host([orientation="vertical"]) {
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  & [part="tablist"] {
+    flex-direction: column;
+    box-shadow: inset -1px 0 0 0 var(--_border-color);
+  }
+}
+
+:host([variant="boxed"]) [part="tablist"] {
+  box-shadow: inset 0 0 0 1px var(--_border-color);
+  border-radius: var(--chickadee-border-radius-sm, 4px);
+  padding: 2px;
+  gap: 2px;
+}
+
+[part="tablist"] {
+  display: flex;
+  gap: 0;
+  box-shadow: inset 0 -1px 0 0 var(--_border-color);
+}

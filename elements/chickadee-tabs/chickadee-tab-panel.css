@@ -1,0 +1,11 @@
+/**
+ * @cssprop [--chickadee-tab-panel-padding=var(--chickadee-space-lg, 16px)] - Padding for the tab panel content area. References the `--chickadee-space-lg` design token.
+ */
+:host {
+  display: block;
+  padding: var(--chickadee-tab-panel-padding, var(--chickadee-space-lg, 16px));
+
+  &([hidden]) {
+    display: none;
+  }
+}
