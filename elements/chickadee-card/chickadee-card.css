@@ -1,0 +1,104 @@
+/**
+ * @cssprop [--chickadee-card-border-radius=var(--chickadee-border-radius-default)] - Card corner radius. Maps to the `--chickadee-border-radius-default` design token.
+ * @cssprop [--chickadee-card-padding=var(--chickadee-space-xl)] - Card section padding. Maps to the `--chickadee-space-xl` design token.
+ */
+:host {
+  container-type: style;
+  --chickadee-elevation: 1;
+  --_radius:
+    var(--chickadee-card-border-radius,
+      var(--chickadee-border-radius-default, 16px));
+  --_padding:
+    var(--chickadee-card-padding,
+      var(--chickadee-space-xl, 24px));
+  --_surface:
+    var(--chickadee-color-surface-raised,
+      light-dark(white, #1f1f1f));
+  --_shadow:
+    var(--chickadee-shadow-md,
+      0 4px 8px 1px rgba(21, 21, 21, 0.2));
+  display: block;
+  position: relative;
+  background: var(--_surface);
+  border-radius: var(--_radius);
+  box-shadow: var(--_shadow);
+  overflow: hidden;
+}
+
+:host([variant="flat"]) {
+  --_shadow: none;
+  box-shadow:
+    inset 0 0 0
+      var(--chickadee-border-width-sm, 1px)
+      var(--chickadee-color-border-subtle, light-dark(#e0e0e0, #383838));
+}
+
+:host([variant="rounded"]) {
+  --_radius: var(--chickadee-border-radius-pill, 64px);
+}
+
+:host([compact]) {
+  --_padding: var(--chickadee-space-lg, 16px);
+}
+
+:host([selectable]) {
+  cursor: pointer;
+
+  &:hover {
+    box-shadow:
+      var(--chickadee-shadow-lg, 0 8px 16px 2px rgba(21, 21, 21, 0.25));
+  }
+}
+
+:host([selected]) {
+  box-shadow:
+    inset 0 0 0
+      var(--chickadee-border-width-md, 2px)
+      var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
+}
+
+[part="image"] {
+  display: block;
+
+  &::slotted(*) {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+[part="header"] {
+  padding: var(--_padding);
+  padding-block-end: 0;
+  font-size: var(--chickadee-font-size-body-text-lg, 18px);
+  font-weight: var(--chickadee-font-weight-bold, 700);
+  line-height: var(--chickadee-line-height-heading, 1.3);
+}
+
+[part="body"] {
+  padding: var(--_padding);
+}
+
+[part="footer"] {
+  padding: var(--_padding);
+  padding-block-start: 0;
+}
+
+a {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.select-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+
+  &:focus-visible {
+    outline: var(--chickadee-border-width-lg, 3px) solid
+      var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
+    outline-offset: 2px;
+  }
+}
