@@ -1,0 +1,57 @@
+/**
+ * @cssprop [--chickadee-tab-padding-block=var(--chickadee-space-md, 8px)] - Block padding for the tab. References the `--chickadee-space-md` design token.
+ * @cssprop [--chickadee-tab-padding-inline=var(--chickadee-space-lg, 16px)] - Inline padding for the tab. References the `--chickadee-space-lg` design token.
+ * @cssprop [--chickadee-tab-font-size=var(--chickadee-font-size-body-text-sm, 14px)] - Font size for tab text. References the `--chickadee-font-size-body-text-sm` design token.
+ */
+:host {
+  --_padding-block: var(--chickadee-tab-padding-block, var(--chickadee-space-md, 8px));
+  --_padding-inline: var(--chickadee-tab-padding-inline, var(--chickadee-space-lg, 16px));
+  --_font-size: var(--chickadee-tab-font-size, var(--chickadee-font-size-body-text-sm, 14px));
+  --_color: light-dark(#4d4d4d, #c7c7c7);
+  --_font-weight: var(--chickadee-font-weight-medium, 500);
+  --_indicator-size: var(--chickadee-border-width-lg, 3px);
+  --_focus-color: var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--_padding-block) var(--_padding-inline);
+  cursor: pointer;
+  font-size: var(--_font-size);
+  font-weight: var(--_font-weight);
+  color: var(--_color);
+  position: relative;
+  user-select: none;
+  outline: none;
+  white-space: nowrap;
+
+  &:hover {
+    color: light-dark(#1f1f1f, white);
+  }
+
+  &:focus-visible {
+    outline: var(--_indicator-size) solid var(--_focus-color);
+    outline-offset: -3px;
+  }
+}
+
+:host([selected]) {
+  --_color: var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
+  --_font-weight: var(--chickadee-font-weight-bold, 700);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--_indicator-size);
+    background: var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
+  }
+}
+
+:host([disabled]) {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
