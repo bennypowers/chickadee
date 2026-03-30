@@ -1,0 +1,18 @@
+<meta itemprop="description" content="Dropdown menu with items, groups, icons, and selection state.">
+<chickadee-button onclick="document.querySelector('#demo-menu').open = !document.querySelector('#demo-menu').open">Open menu</chickadee-button>
+
+<chickadee-menu id="demo-menu">
+  <chickadee-menu-item icon="add-circle">New item</chickadee-menu-item>
+  <chickadee-menu-item icon="info">Details</chickadee-menu-item>
+  <chickadee-menu-item icon="check-circle-fill" selected>Selected</chickadee-menu-item>
+  <chickadee-menu-group label="Actions">
+    <chickadee-menu-item>Edit</chickadee-menu-item>
+    <chickadee-menu-item>Duplicate</chickadee-menu-item>
+    <chickadee-menu-item danger>Delete</chickadee-menu-item>
+  </chickadee-menu-group>
+</chickadee-menu>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-menu/chickadee-menu.js';
+  import '@chickadee/elements/chickadee-button/chickadee-button.js';
+</script>
