@@ -1,0 +1,28 @@
+:host {
+  position: relative;
+  display: inline-flex;
+}
+
+/**
+ * The badge indicator. Sized with the `--chickadee-size-badge-sm` design
+ * token and colored with the `--chickadee-color-status-danger` token.
+ */
+[part="badge"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  translate: 40% -40%;
+  min-width: var(--chickadee-size-badge-sm, 16px);
+  height: var(--chickadee-size-badge-sm, 16px);
+  border-radius: var(--chickadee-border-radius-pill, 64px);
+  background: var(--chickadee-color-status-danger, light-dark(#b1380b, #f0561d));
+  color: white;
+  font-size: var(--chickadee-font-size-body-text-xs, 12px);
+  font-weight: var(--chickadee-font-weight-bold, 700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  line-height: 1;
+  pointer-events: none;
+}

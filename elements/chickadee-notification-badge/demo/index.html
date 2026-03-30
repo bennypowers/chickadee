@@ -1,0 +1,17 @@
+<!-- Demonstrates notification badge with a count, a count exceeding the threshold (99+), and no count (hidden badge). -->
+<chickadee-notification-badge count="3">
+  <chickadee-icon-button icon="notification-bell" accessible-label="Notifications"></chickadee-icon-button>
+</chickadee-notification-badge>
+
+<chickadee-notification-badge count="100">
+  <chickadee-icon-button icon="notification-bell" accessible-label="Notifications"></chickadee-icon-button>
+</chickadee-notification-badge>
+
+<chickadee-notification-badge>
+  <chickadee-icon-button icon="notification-bell" accessible-label="Notifications"></chickadee-icon-button>
+</chickadee-notification-badge>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-notification-badge/chickadee-notification-badge.js';
+  import '@chickadee/elements/chickadee-icon-button/chickadee-icon-button.js';
+</script>
