@@ -1,0 +1,18 @@
+<meta itemprop="description" content="Full-size and compact empty state layouts with icon, heading, description, and action buttons.">
+
+<chickadee-empty-state icon="add-circle">
+  <h2 slot="heading">No items found</h2>
+  <p>You haven't created any items yet. Get started by adding your first one.</p>
+  <chickadee-button slot="actions">Create item</chickadee-button>
+  <chickadee-button slot="actions" variant="secondary">Learn more</chickadee-button>
+</chickadee-empty-state>
+
+<chickadee-empty-state variant="sm" icon="info">
+  <h3 slot="heading">No results</h3>
+  <p>Try adjusting your search or filter criteria.</p>
+</chickadee-empty-state>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-empty-state/chickadee-empty-state.js';
+  import '@chickadee/elements/chickadee-button/chickadee-button.js';
+</script>
