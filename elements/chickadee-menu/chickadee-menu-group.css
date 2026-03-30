@@ -1,0 +1,29 @@
+/**
+ * @cssprop [--chickadee-color-border-subtle] - Separator color between groups. References the `--chickadee-color-border-subtle` design token with light-dark() theme fallback.
+ * @cssprop [--chickadee-font-size-body-text-xs] - Group label font size. References the `--chickadee-font-size-body-text-xs` design token.
+ * @cssprop [--chickadee-font-weight-bold] - Group label font weight. References the `--chickadee-font-weight-bold` design token.
+ */
+:host {
+  display: block;
+  box-shadow:
+    inset 0 -1px 0 0
+    var(--chickadee-color-border-subtle,
+      light-dark(#e0e0e0, #383838));
+  padding-block: var(--chickadee-space-xs, 4px);
+}
+
+:host(:last-of-type) {
+  box-shadow: none;
+}
+
+[part="label"] {
+  display: block;
+  padding:
+    var(--chickadee-space-sm, 6px)
+    var(--chickadee-space-lg, 16px);
+  font-size: var(--chickadee-font-size-body-text-xs, 12px);
+  font-weight: var(--chickadee-font-weight-bold, 700);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: light-dark(#4d4d4d, #c7c7c7);
+}

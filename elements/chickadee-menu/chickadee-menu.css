@@ -1,0 +1,29 @@
+/**
+ * @cssprop [--chickadee-color-surface-overlay] - Menu background color. Maps to the `--chickadee-color-surface-overlay` design token.
+ * @cssprop [--chickadee-shadow-xl] - Menu drop shadow. Maps to the `--chickadee-shadow-xl` design token.
+ */
+:host {
+  container-type: style;
+  --chickadee-elevation: 3;
+  position: relative;
+  display: inline-block;
+}
+
+[popover] {
+  background:
+    var(--chickadee-color-surface-overlay,
+      light-dark(white, #383838));
+  border-radius:
+    var(--chickadee-border-radius-default, 16px);
+  box-shadow:
+    var(--chickadee-shadow-xl,
+      0 16px 24px 4px rgba(21, 21, 21, 0.3));
+  border: none;
+  padding:
+    var(--chickadee-space-xs, 4px) 0;
+  min-width: 200px;
+  max-height: 320px;
+  overflow-y: auto;
+  margin: 0;
+  inset: unset;
+}

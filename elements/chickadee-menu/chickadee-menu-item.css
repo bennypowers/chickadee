@@ -1,0 +1,68 @@
+/**
+ * @cssprop [--chickadee-color-interactive-fill-plain-hover] - Hover and focus background color for the menu item. References the `--chickadee-color-interactive-fill-plain-hover` design token with light-dark() theme fallback.
+ * @cssprop [--chickadee-color-text-status-danger] - Text color when the `danger` attribute is set. References the `--chickadee-color-text-status-danger` design token with light-dark() theme fallback.
+ * @cssprop [--chickadee-color-interactive-primary-default] - Focus indicator and selection checkmark color. References the `--chickadee-color-interactive-primary-default` design token.
+ */
+:host {
+  display: flex;
+  align-items: center;
+  gap: var(--chickadee-space-md, 8px);
+  padding:
+    var(--chickadee-space-sm, 6px)
+    var(--chickadee-space-lg, 16px);
+  cursor: pointer;
+  font-size: var(--chickadee-font-size-body-text-sm, 14px);
+  line-height: var(--chickadee-line-height-body-text, 1.5);
+  outline: none;
+  color: light-dark(#1f1f1f, white);
+}
+
+:host(:hover),
+:host(:focus-visible) {
+  background:
+    var(--chickadee-color-interactive-fill-plain-hover,
+      light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15)));
+}
+
+:host(:focus-visible) {
+  box-shadow:
+    inset
+      var(--chickadee-border-width-lg, 3px) 0 0 0
+      var(--chickadee-color-interactive-primary-default,
+        light-dark(#0066cc, #92c5f9));
+}
+
+:host([danger]) {
+  color:
+    var(--chickadee-color-text-status-danger,
+      light-dark(#b1380b, #f89b78));
+}
+
+:host([disabled]) {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+[part="content"] {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+[part="description"] {
+  font-size: var(--chickadee-font-size-body-text-xs, 12px);
+  color: light-dark(#4d4d4d, #c7c7c7);
+}
+
+[part="check"] {
+  --chickadee-icon-size: var(--chickadee-size-icon-sm, 14px);
+  color:
+    var(--chickadee-color-interactive-primary-default,
+      light-dark(#0066cc, #92c5f9));
+}
+
+a[part="link"] {
+  all: unset;
+  display: contents;
+}
