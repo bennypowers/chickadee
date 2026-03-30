@@ -1,0 +1,112 @@
+:host {
+  display: block;
+}
+
+:host([disabled]) {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+[part="dropzone"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--chickadee-space-md, 8px);
+  padding: var(--chickadee-space-2xl, 32px);
+  border: 2px dashed
+    var(--chickadee-color-border-subtle,
+      light-dark(#e0e0e0, #383838));
+  border-radius: var(--chickadee-border-radius-default, 16px);
+  text-align: center;
+  transition: background 0.15s ease, border-color 0.15s ease;
+
+  &.dragging {
+    border-color:
+      var(--chickadee-color-interactive-primary-default,
+        light-dark(#0066cc, #92c5f9));
+    background:
+      light-dark(
+        rgba(0, 102, 204, 0.05),
+        rgba(146, 197, 249, 0.05)
+      );
+  }
+}
+
+[part="icon"] {
+  --chickadee-icon-size: 32px;
+  color: light-dark(#4d4d4d, #c7c7c7);
+}
+
+[part="heading"] {
+  font-size: var(--chickadee-font-size-body-text-md, 16px);
+  font-weight: var(--chickadee-font-weight-medium, 500);
+}
+
+[name="description"]::slotted(*) {
+  font-size: var(--chickadee-font-size-body-text-sm, 14px);
+  color: light-dark(#4d4d4d, #c7c7c7);
+}
+
+input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+[part="file-list"] {
+  list-style: none;
+  margin: var(--chickadee-space-lg, 16px) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--chickadee-space-xs, 4px);
+}
+
+[part="file-item"] {
+  display: flex;
+  align-items: center;
+  gap: var(--chickadee-space-md, 8px);
+  padding:
+    var(--chickadee-space-sm, 6px)
+    var(--chickadee-space-md, 8px);
+  background:
+    var(--chickadee-color-surface-status-neutral,
+      light-dark(#f2f2f2, #383838));
+  border-radius: var(--chickadee-border-radius-sm, 4px);
+  font-size: var(--chickadee-font-size-body-text-sm, 14px);
+}
+
+[part="file-name"] {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[part="file-size"] {
+  color: light-dark(#4d4d4d, #c7c7c7);
+  flex-shrink: 0;
+}
+
+[part="file-remove"] {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  padding: 2px;
+  color: light-dark(#4d4d4d, #c7c7c7);
+  --chickadee-icon-size: var(--chickadee-size-icon-sm, 14px);
+
+  &:hover {
+    color: light-dark(#1f1f1f, white);
+  }
+
+  &:focus-visible {
+    outline:
+      var(--chickadee-border-width-lg, 3px) solid
+      var(--chickadee-color-interactive-primary-default,
+        light-dark(#0066cc, #92c5f9));
+    border-radius: var(--chickadee-border-radius-sm, 4px);
+  }
+}

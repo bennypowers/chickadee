@@ -1,0 +1,16 @@
+<meta itemprop="name" content="File upload">
+<meta itemprop="description" content="Drag-and-drop file upload with multi-file and single-file examples.">
+
+<chickadee-file-upload multiple accept=".jpg,.png,.pdf,.gif">
+  <span slot="description">Accepted file types: JPEG, PNG, PDF, GIF</span>
+</chickadee-file-upload>
+
+<h3>Single file</h3>
+<chickadee-file-upload accept=".csv">
+  <span slot="heading">Upload a CSV file</span>
+  <span slot="description">Maximum file size: 10 MB</span>
+</chickadee-file-upload>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-file-upload/chickadee-file-upload.js';
+</script>
