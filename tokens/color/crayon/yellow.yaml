@@ -1,6 +1,11 @@
 color:
   $type: color
   yellow:
+    "10":
+      $value: "#fff3cd"
+      $description: >-
+        Lightest yellow. Should be used for warning status surface tints and
+        alert backgrounds.
     "20":
       $value: "#ffe072"
       $description: >-

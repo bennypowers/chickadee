@@ -16,6 +16,58 @@ color:
       $description: >-
         Active state for danger elements. Red-orange-70 on light,
         red-orange-40 on dark.
+    success:
+      $value: "light-dark(#6ec04c, #afdc8f)"
+      $description: >-
+        Default success status color. Used for success icons and indicators.
+        Green-40 on light, green-30 on dark.
+    warning:
+      $value: "light-dark(#dca614, #ffe072)"
+      $description: >-
+        Default warning status color. Used for warning icons and indicators.
+        Yellow-40 on light, yellow-20 on dark.
+    info:
+      $value: "light-dark(#3d2785, #d0c5f4)"
+      $description: >-
+        Default info status color. Used for info icons and indicators.
+        Purple-60 on light, purple-20 on dark.
+    neutral:
+      $value: "light-dark(#4d4d4d, #c7c7c7)"
+      $description: >-
+        Default neutral status color. Used for default/neutral status
+        indicators. Gray-60 on light, gray-30 on dark.
+    custom:
+      $value: "light-dark(#147878, #63bdbd)"
+      $description: >-
+        Custom status color. Used for custom or supplementary status
+        indicators. Teal-60 on light, teal-40 on dark.
+
+  surface-status:
+    danger:
+      $value: "light-dark(#fbbea8, #49200a)"
+      $description: >-
+        Danger status surface background. Red-orange-20 on light, derived
+        dark on dark.
+    success:
+      $value: "light-dark(#d2f0be, #1a3a08)"
+      $description: >-
+        Success status surface background. Green-10 on light, derived dark
+        on dark.
+    warning:
+      $value: "light-dark(#fff3cd, #3d2e07)"
+      $description: >-
+        Warning status surface background. Yellow-10 on light, derived dark
+        on dark.
+    info:
+      $value: "light-dark(#e8e2f8, #1e1340)"
+      $description: >-
+        Info status surface background. Purple-10 on light, derived dark
+        on dark.
+    neutral:
+      $value: "light-dark(#f2f2f2, #383838)"
+      $description: >-
+        Neutral status surface background. Gray-10 on light, gray-70 on
+        dark.
 
   text-status:
     danger:
@@ -28,6 +80,18 @@ color:
       $description: >-
         Hover state for danger text. Red-orange-70 on light, red-orange-20
         on dark.
+    success:
+      $value: "light-dark(#204d00, #afdc8f)"
+      $description: >-
+        Success text color. Green-70 on light, green-30 on dark.
+    warning:
+      $value: "light-dark(#dca614, #ffe072)"
+      $description: >-
+        Warning text color. Yellow-40 on light, yellow-20 on dark.
+    info:
+      $value: "light-dark(#3d2785, #d0c5f4)"
+      $description: >-
+        Info text color. Purple-60 on light, purple-20 on dark.
     on-disabled:
       $value: "light-dark(#707070, #383838)"
       $description: >-

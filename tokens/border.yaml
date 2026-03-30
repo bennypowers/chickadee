@@ -1,6 +1,12 @@
 border:
   radius:
     $type: dimension
+    sm:
+      $value: 4px
+      $description: >-
+        Applies a 4px border radius. Should be used for small inline elements
+        like labels, badges, and breadcrumb items where a subtle rounding is
+        appropriate.
     default:
       $value: 16px
       $description: >-

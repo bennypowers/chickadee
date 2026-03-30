@@ -10,6 +10,11 @@
         "$description": "Applies a 64px border radius to at least 1 corner of a container. It should be used for elements needing a circle or pill-shaped background like Button, Badge, or Switch. Applying to all 4 corners at once is optional.",
         "$type": "dimension",
         "$value": "64px"
+      },
+      "sm": {
+        "$description": "Applies a 4px border radius. Should be used for small inline elements like labels, badges, and breadcrumb items where a subtle rounding is appropriate.",
+        "$type": "dimension",
+        "$value": "4px"
       }
     },
     "width": {
@@ -66,6 +71,13 @@
         "$description": "Darkest blue. Should be used for spinner and progress track backgrounds on dark themes.",
         "$type": "color",
         "$value": "#003366"
+      }
+    },
+    "border": {
+      "subtle": {
+        "$description": "Subtle border color for dividers, card borders, and secondary separators. Gray-20 on light themes, gray-70 on dark themes.",
+        "$type": "color",
+        "$value": "light-dark(#e0e0e0, #383838)"
       }
     },
     "border-interactive": {
@@ -140,10 +152,20 @@
       }
     },
     "green": {
+      "10": {
+        "$description": "Lightest green. Should be used for success status surface tints and alert backgrounds.",
+        "$type": "color",
+        "$value": "#d2f0be"
+      },
       "30": {
         "$description": "Light green. Should be used for success status hover states on dark themes.",
         "$type": "color",
         "$value": "#afdc8f"
+      },
+      "40": {
+        "$description": "Medium green. Should be used for success status indicators on light themes and active states.",
+        "$type": "color",
+        "$value": "#6ec04c"
       },
       "70": {
         "$description": "Dark green. Should be used for success status hover states on light themes.",
@@ -197,6 +219,11 @@
       }
     },
     "purple": {
+      "10": {
+        "$description": "Lightest purple. Should be used for info status surface tints and alert backgrounds.",
+        "$type": "color",
+        "$value": "#e8e2f8"
+      },
       "20": {
         "$description": "Light purple. Should be used for info status hover states on dark themes.",
         "$type": "color",
@@ -241,6 +268,11 @@
       }
     },
     "status": {
+      "custom": {
+        "$description": "Custom status color. Used for custom or supplementary status indicators. Teal-60 on light, teal-40 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#147878, #63bdbd)"
+      },
       "danger": {
         "$description": "Default danger status color. Used for danger button backgrounds. Red-orange-60 on light, red-orange-50 on dark.",
         "$type": "color",
@@ -255,6 +287,70 @@
         "$description": "Hover state for danger elements. Red-orange-70 on light, red-orange-40 on dark.",
         "$type": "color",
         "$value": "light-dark(#731f00, #f4784a)"
+      },
+      "info": {
+        "$description": "Default info status color. Used for info icons and indicators. Purple-60 on light, purple-20 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#3d2785, #d0c5f4)"
+      },
+      "neutral": {
+        "$description": "Default neutral status color. Used for default/neutral status indicators. Gray-60 on light, gray-30 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#4d4d4d, #c7c7c7)"
+      },
+      "success": {
+        "$description": "Default success status color. Used for success icons and indicators. Green-40 on light, green-30 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#6ec04c, #afdc8f)"
+      },
+      "warning": {
+        "$description": "Default warning status color. Used for warning icons and indicators. Yellow-40 on light, yellow-20 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#dca614, #ffe072)"
+      }
+    },
+    "surface": {
+      "default": {
+        "$description": "Default page-level surface. Used as the base background for layouts and full-page views. White on light themes, near-black on dark themes.",
+        "$type": "color",
+        "$value": "light-dark(white, #151515)"
+      },
+      "overlay": {
+        "$description": "Overlay surface for elements with elevation 2+, like modals, menus, and popovers. White on light themes, medium gray on dark themes.",
+        "$type": "color",
+        "$value": "light-dark(white, #383838)"
+      },
+      "raised": {
+        "$description": "Raised surface for elements with elevation 1, like cards, sidebar navigation, and mastheads. White on light themes, dark gray on dark themes.",
+        "$type": "color",
+        "$value": "light-dark(white, #1f1f1f)"
+      }
+    },
+    "surface-status": {
+      "danger": {
+        "$description": "Danger status surface background. Red-orange-20 on light, derived dark on dark.",
+        "$type": "color",
+        "$value": "light-dark(#fbbea8, #49200a)"
+      },
+      "info": {
+        "$description": "Info status surface background. Purple-10 on light, derived dark on dark.",
+        "$type": "color",
+        "$value": "light-dark(#e8e2f8, #1e1340)"
+      },
+      "neutral": {
+        "$description": "Neutral status surface background. Gray-10 on light, gray-70 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#f2f2f2, #383838)"
+      },
+      "success": {
+        "$description": "Success status surface background. Green-10 on light, derived dark on dark.",
+        "$type": "color",
+        "$value": "light-dark(#d2f0be, #1a3a08)"
+      },
+      "warning": {
+        "$description": "Warning status surface background. Yellow-10 on light, derived dark on dark.",
+        "$type": "color",
+        "$value": "light-dark(#fff3cd, #3d2e07)"
       }
     },
     "teal": {
@@ -319,13 +415,33 @@
         "$type": "color",
         "$value": "light-dark(#a3a3a3, #707070)"
       },
+      "info": {
+        "$description": "Info text color. Purple-60 on light, purple-20 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#3d2785, #d0c5f4)"
+      },
       "on-disabled": {
         "$description": "Text color on disabled filled surfaces. Gray-50 on light, gray-70 on dark.",
         "$type": "color",
         "$value": "light-dark(#707070, #383838)"
+      },
+      "success": {
+        "$description": "Success text color. Green-70 on light, green-30 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#204d00, #afdc8f)"
+      },
+      "warning": {
+        "$description": "Warning text color. Yellow-40 on light, yellow-20 on dark.",
+        "$type": "color",
+        "$value": "light-dark(#dca614, #ffe072)"
       }
     },
     "yellow": {
+      "10": {
+        "$description": "Lightest yellow. Should be used for warning status surface tints and alert backgrounds.",
+        "$type": "color",
+        "$value": "#fff3cd"
+      },
       "20": {
         "$description": "Light yellow. Should be used for warning status hover states on dark themes.",
         "$type": "color",
@@ -341,25 +457,128 @@
   "font": {
     "line-height": {
       "body-text": {
-        "$description": "Default body text line height. Should be used for all body text to ensure comfortable readability and adequate touch targets when applied to interactive elements.",
+        "$description": "Body text line height. Should be used for all body text sizes (body-text-xs through body-text-md) to ensure comfortable readability and adequate touch targets when applied to interactive elements.",
         "$type": "number",
         "$value": "1.5"
+      },
+      "heading": {
+        "$description": "Heading line height. Should be used for all heading sizes (heading-sm through heading-xl) to maintain compact vertical rhythm in title areas.",
+        "$type": "number",
+        "$value": "1.3"
       }
     },
     "size": {
+      "body-text-lg": {
+        "$description": "Large body text (H3 / SM). Should be used for card headers, description list terms, and tertiary headings. Renders at 18px / 23.4 (1.3) when used as a heading.",
+        "$type": "dimension",
+        "$value": "18px"
+      },
       "body-text-md": {
-        "$description": "Medium body text size. Should be used as the default for body copy and form field text.",
+        "$description": "Medium body text (Body large). Should be used as the default for body copy, form field text, and inline content. Also used for H4-H6 headings at medium weight. Renders at 16px / 24 (1.5).",
         "$type": "dimension",
         "$value": "16px"
       },
       "body-text-sm": {
-        "$description": "Small body text size. Should be used for button labels, compact UI text, and secondary content. It must not be used for primary body copy.",
+        "$description": "Small body text (Body default). Should be used for button labels, compact UI text, form field text, and secondary content. It must not be used for primary body copy. Renders at 14px / 21 (1.5).",
         "$type": "dimension",
         "$value": "14px"
+      },
+      "body-text-xs": {
+        "$description": "Extra-small body text (Body Small). Should be used for badge counts, fine print, navigation section headings, and auxiliary labels. It must not be used for primary content. Renders at 12px / 18 (1.5).",
+        "$type": "dimension",
+        "$value": "12px"
+      },
+      "heading-lg": {
+        "$description": "Large heading (Hero / XL). Should be used for hero headings and full-page empty state titles. It must not be used for regular page titles. Renders at 28px / 36.4 (1.3) with medium weight.",
+        "$type": "dimension",
+        "$value": "28px"
+      },
+      "heading-md": {
+        "$description": "Medium heading (H1 / LG). Should be used for page titles, modal titles, empty state headings, and card primary headings. Only one H1 heading should be used per page. Renders at 24px / 31.2 (1.3) with bold weight.",
+        "$type": "dimension",
+        "$value": "24px"
+      },
+      "heading-sm": {
+        "$description": "Small heading (H2 / MED). Should be used for accordion headers, modal subtitles, and section subheadings. Renders at 20px / 26 (1.3) with medium weight.",
+        "$type": "dimension",
+        "$value": "20px"
+      },
+      "heading-xl": {
+        "$description": "Extra-large heading (Super hero / XXL). Should be used only for full-page empty states, landing cards, and similar prominent locations. It must not be used for page titles. Renders at 36px / 46.8 (1.3) with medium weight.",
+        "$type": "dimension",
+        "$value": "36px"
+      }
+    },
+    "weight": {
+      "bold": {
+        "$description": "Bold font weight. Should be used for H1 page titles, strong emphasis, and active navigation states. Maps to bold weight in the type scale.",
+        "$type": "number",
+        "$value": "700"
+      },
+      "medium": {
+        "$description": "Medium font weight. Should be used for labels, navigation items, heading levels H2-H6, and semi-emphasized text. Maps to RH Display Medium.",
+        "$type": "number",
+        "$value": "500"
+      },
+      "regular": {
+        "$description": "Regular font weight. Should be used for body text, descriptions, and secondary content. Maps to RH Text Regular.",
+        "$type": "number",
+        "$value": "400"
       }
     }
   },
+  "shadow": {
+    "lg": {
+      "$description": "Large shadow for high elevation. Used for modal dialogs.",
+      "$type": "shadow",
+      "$value": "0 8px 16px 2px rgba(21, 21, 21, 0.25)"
+    },
+    "md": {
+      "$description": "Medium shadow for moderate elevation. Used for raised cards and dropdown menus.",
+      "$type": "shadow",
+      "$value": "0 4px 8px 1px rgba(21, 21, 21, 0.2)"
+    },
+    "sm": {
+      "$description": "Small shadow for subtle elevation. Used for card hover effects and sticky elements.",
+      "$type": "shadow",
+      "$value": "0 1px 4px 0 rgba(21, 21, 21, 0.15)"
+    },
+    "xl": {
+      "$description": "Extra-large shadow for maximum elevation. Used for popovers and menus rendered on top of modals.",
+      "$type": "shadow",
+      "$value": "0 16px 24px 4px rgba(21, 21, 21, 0.3)"
+    }
+  },
   "size": {
+    "avatar": {
+      "lg": {
+        "$description": "Large avatar size. Should be used for user profile displays and prominent identity indicators.",
+        "$type": "dimension",
+        "$value": "48px"
+      },
+      "md": {
+        "$description": "Medium avatar size. Should be used as the default avatar size for most contexts.",
+        "$type": "dimension",
+        "$value": "36px"
+      },
+      "sm": {
+        "$description": "Small avatar size. Should be used for compact list items and inline mentions.",
+        "$type": "dimension",
+        "$value": "24px"
+      },
+      "xl": {
+        "$description": "Extra-large avatar size. Should be used for hero profile displays and account settings.",
+        "$type": "dimension",
+        "$value": "64px"
+      }
+    },
+    "badge": {
+      "sm": {
+        "$description": "Small badge size. Should be used as the minimum dimension for notification badge counters.",
+        "$type": "dimension",
+        "$value": "16px"
+      }
+    },
     "icon": {
       "lg": {
         "$description": "Large icon size. Should be used for prominent standalone icons and status indicators.",
