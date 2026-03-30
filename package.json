@@ -19,7 +19,7 @@
     "lit": "^3.3.2"
   },
   "devDependencies": {
-    "@pwrs/cem": "^0.9.15",
+    "@pwrs/cem": "^0.9.16",
     "@rhds/tokens": "^3.0.2"
   }
 }
