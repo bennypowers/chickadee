@@ -1,0 +1,68 @@
+:host {
+  /**
+   * Controls the avatar dimensions. Override per-instance or use the `size`
+   * attribute for preset values (sm, md, lg, xl). References the
+   * `--chickadee-size-avatar-*` design tokens.
+   */
+  --_size: var(--chickadee-size-avatar-md, 36px);
+
+  /**
+   * Controls the avatar background color. Defaults to a neutral gray
+   * appropriate for light and dark color schemes. Themed via the
+   * `--chickadee-avatar-background` design token.
+   */
+  --_background: var(--chickadee-avatar-background, light-dark(#e0e0e0, #383838));
+
+  /**
+   * Controls the text and icon color within the avatar. Themed via the
+   * `--chickadee-avatar-color` design token.
+   */
+  --_color: var(--chickadee-avatar-color, light-dark(#4d4d4d, #c7c7c7));
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  width: var(--_size);
+  height: var(--_size);
+  background: var(--_background);
+  color: var(--_color);
+}
+
+/* Size presets */
+
+:host([size="sm"]) {
+  --_size: var(--chickadee-size-avatar-sm, 24px);
+}
+
+:host([size="md"]) {
+  --_size: var(--chickadee-size-avatar-md, 36px);
+}
+
+:host([size="lg"]) {
+  --_size: var(--chickadee-size-avatar-lg, 48px);
+}
+
+:host([size="xl"]) {
+  --_size: var(--chickadee-size-avatar-xl, 64px);
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+span {
+  font-size: calc(var(--_size) * 0.4);
+  font-weight: var(--chickadee-font-weight-medium, 500);
+  line-height: 1;
+  user-select: none;
+}
+
+svg {
+  fill: currentColor;
+  width: 60%;
+  height: 60%;
+}
