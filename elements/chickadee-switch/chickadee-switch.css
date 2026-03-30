@@ -1,0 +1,75 @@
+/**
+ * @cssprop [--chickadee-switch-gap=var(--chickadee-space-md)] - Gap between the track and label. Maps to the `--chickadee-space-md` design token.
+ * @cssprop [--chickadee-switch-track-background] - Track background when unchecked. Defaults to gray-30/gray-50 via `light-dark()`.
+ * @cssprop [--chickadee-switch-track-background-checked] - Track background when checked. Defaults to `--chickadee-color-interactive-primary-default`.
+ * @cssprop [--chickadee-switch-track-border-color] - Track border color when unchecked. Maps to gray-30/gray-50.
+ */
+:host {
+  /** @private */
+  --_gap: var(--chickadee-switch-gap, var(--chickadee-space-md, 8px));
+
+  /** @private */
+  --_track-background: var(--chickadee-switch-track-background, light-dark(#c7c7c7, #707070));
+  /** @private */
+  --_track-border-color: var(--chickadee-switch-track-border-color, light-dark(#c7c7c7, #707070));
+
+  --_focus-ring-width: var(--chickadee-border-width-lg, 3px);
+  --_focus-ring-color: var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--_gap);
+}
+
+:host([checked]) {
+  --_track-background:
+    var(--chickadee-switch-track-background-checked,
+      var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9)));
+  --_track-border-color:
+    var(--chickadee-switch-track-border-color-checked,
+      var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9)));
+}
+
+:host([disabled]) {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+button {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  width: 40px;
+  height: 20px;
+  border-radius: var(--chickadee-border-radius-pill, 64px);
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+  background: var(--_track-background);
+  box-shadow: inset 0 0 0 var(--chickadee-border-width-sm, 1px) var(--_track-border-color);
+  transition: background 150ms ease;
+  flex-shrink: 0;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: white;
+    transition: translate 0.15s ease;
+  }
+
+  &:focus-visible {
+    outline: var(--_focus-ring-width) solid var(--_focus-ring-color);
+    outline-offset: 2px;
+  }
+
+  :host([checked]) &::before {
+    translate: 20px 0;
+  }
+
+  :host([disabled]) & {
+    cursor: not-allowed;
+  }
+}
