@@ -1,0 +1,42 @@
+:host {
+  container-type: style;
+  --chickadee-elevation: 1;
+  display: block;
+  background:
+    var(--chickadee-color-surface-raised,
+      light-dark(white, #1f1f1f));
+  box-shadow:
+    var(--chickadee-shadow-sm,
+      0 1px 4px 0 rgba(21, 21, 21, 0.15));
+}
+
+:host([sticky]) {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: var(--chickadee-space-lg, 16px);
+  padding:
+    0 var(--chickadee-space-xl, 24px);
+  min-height: 64px;
+}
+
+[part="spacer"] {
+  flex: 1;
+}
+
+[name="logo"]::slotted(*) {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+[name="utility"] {
+  display: flex;
+  align-items: center;
+  gap: var(--chickadee-space-md, 8px);
+}
