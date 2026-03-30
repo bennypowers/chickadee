@@ -10,38 +10,48 @@
   --_label-color: var(--chickadee-color-text-primary, light-dark(#151515, white));
   --_description-color: var(--chickadee-color-text-secondary, light-dark(#4d4d4d, #c7c7c7));
   --_surface: light-dark(var(--chickadee-color-surface, white), var(--chickadee-color-surface, #151515));
-
-  /* Default: horizontal layout (icon on top, label and description below) */
-  --_grid-areas:
-    'icon'
-    'label'
-    'description';
-  --_grid-columns: auto;
-  --_grid-rows: var(--_icon-size) auto 1fr;
 }
 
 #container {
   position: relative;
   display: grid;
-  grid-template-areas: var(--_grid-areas);
-  grid-template-columns: var(--_grid-columns);
-  grid-template-rows: var(--_grid-rows);
+  grid-template:
+    'icon' var(--_icon-size)
+    'label' auto
+    'description' 1fr
+    / auto;
   gap: var(--chickadee-space-xs, 4px);
+  justify-items: center;
+  text-align: center;
   inline-size: 100%;
   font-family: inherit;
   font-size: var(--chickadee-font-size-body-text-md, 16px);
   line-height: var(--chickadee-font-line-height-body-text, 1.5);
 }
 
-/* Connecting line from icon center to the right edge of the step.
-   The next step's line from its left edge to its icon center completes the gap.
-   Icons sit on top (z-index 1) with opaque backgrounds. */
-:host(:not(:last-of-type)) #container::before {
+/* Horizontal connecting lines: drawn via ::before (left half) and ::after (right half).
+   Icon sits on top with opaque background to visually "cut" the line. */
+
+/* Left half: from left edge to icon center (all steps except first) */
+:host(:not(:first-of-type)) #container::before {
   content: '';
   position: absolute;
   inset-block-start: calc(var(--_icon-size) / 2 - 1px);
-  inset-inline-start: calc(var(--_icon-size) / 2);
-  inset-inline-end: 0;
+  inset-inline-start: 0;
+  inline-size: 50%;
+  block-size: 2px;
+  background: var(--_line-color);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Right half: from icon center to right edge (all steps except last) */
+:host(:not(:last-of-type)) #container::after {
+  content: '';
+  position: absolute;
+  inset-block-start: calc(var(--_icon-size) / 2 - 1px);
+  inset-inline-start: 50%;
+  inline-size: 50%;
   block-size: 2px;
   background: var(--_line-color);
   pointer-events: none;
@@ -52,7 +62,7 @@
 
 :is(chickadee-icon, .no-icon) {
   grid-area: icon;
-  justify-self: start;
+  justify-self: center;
   block-size: var(--_icon-size);
   inline-size: var(--_icon-size);
   border: var(--_icon-border) solid var(--_line-color);
@@ -100,7 +110,7 @@ chickadee-icon {
 
 #label {
   grid-area: label;
-  align-self: start;
+  align-self: center;
   color: var(--_label-color);
   font-weight: 400;
   text-decoration: none;
@@ -131,4 +141,51 @@ chickadee-icon {
   margin: 0;
   color: var(--_description-color);
   font-size: var(--chickadee-font-size-body-text-sm, 14px);
+}
+
+:host([description]) #description,
+#description::slotted(*) {
+  display: block;
+}
+
+/* Vertical layout via style container query from stepper.
+   The stepper sets --_chickadee-stepper-vertical: 1 on its :host
+   with container-type: inline-size style. */
+
+@container style(--_chickadee-stepper-vertical: 1) {
+  #container {
+    grid-template:
+      'icon label' auto
+      '.    description' 1fr
+      / var(--_icon-size) 1fr;
+    justify-items: start;
+    text-align: start;
+    column-gap: var(--chickadee-space-md, 8px);
+    row-gap: 0;
+    padding-block-end: var(--chickadee-space-lg, 16px);
+  }
+
+  :is(chickadee-icon, .no-icon) {
+    align-self: start;
+  }
+
+  /* Vertical: hide horizontal lines, draw vertical line downward */
+  :host(:not(:first-of-type)) #container::before,
+  :host(:not(:last-of-type)) #container::after {
+    content: none;
+  }
+
+  :host(:not(:last-of-type)) #container::before {
+    content: '';
+    position: absolute;
+    inset-block-start: var(--_icon-size);
+    inset-block-end: 0;
+    inset-inline-start: calc(var(--_icon-size) / 2 - 1px);
+    inset-inline-end: auto;
+    inline-size: 2px;
+    block-size: auto;
+    background: var(--_line-color);
+    pointer-events: none;
+    z-index: 0;
+  }
 }
