@@ -1,0 +1,78 @@
+/**
+ * @cssprop [--chickadee-accordion-item-padding=var(--chickadee-space-lg, 16px)] - Padding for the header button and body content. References the `--chickadee-space-lg` design token.
+ * @cssprop [--chickadee-accordion-item-font-size=var(--chickadee-font-size-body-text-md, 16px)] - Font size for the header text. References the `--chickadee-font-size-body-text-md` design token.
+ */
+:host {
+  --_padding: var(--chickadee-accordion-item-padding, var(--chickadee-space-lg, 16px));
+  --_font-size: var(--chickadee-accordion-item-font-size, var(--chickadee-font-size-body-text-md, 16px));
+
+  display: block;
+  box-shadow:
+    inset 0 -1px 0 0
+    var(--chickadee-color-border-subtle, light-dark(#e0e0e0, #383838));
+}
+
+:host(:last-of-type) {
+  box-shadow: none;
+}
+
+button {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--_padding);
+  cursor: pointer;
+  font-size: var(--_font-size);
+  font-weight: var(--chickadee-font-weight-medium, 500);
+  box-sizing: border-box;
+}
+
+button:focus-visible {
+  outline:
+    var(--chickadee-border-width-lg, 3px)
+    solid
+    var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
+  outline-offset: -3px;
+}
+
+button:hover {
+  background:
+    var(--chickadee-color-interactive-fill-plain-hover,
+        light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15)));
+}
+
+[part="toggle-icon"] {
+  transition: rotate 0.2s ease;
+
+  /** Size of the toggle chevron icon. */
+  --chickadee-icon-size: var(--chickadee-size-icon-md, 16px);
+}
+
+:host([expanded]) [part="toggle-icon"] {
+  rotate: 180deg;
+}
+
+[part="body"] {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.2s ease;
+}
+
+:host([expanded]) [part="body"] {
+  grid-template-rows: 1fr;
+}
+
+[part="content"] {
+  overflow: hidden;
+}
+
+[part="content"] ::slotted(*) {
+  padding: 0 var(--_padding) var(--_padding);
+}
+
+:host([disabled]) button {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
