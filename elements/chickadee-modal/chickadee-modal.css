@@ -1,0 +1,137 @@
+/**
+ * @cssprop [--chickadee-modal-max-width=600px] - Maximum dialog width. Defaults to 600px; overridden by the `variant` attribute. Maps to the `--chickadee-modal-max-width` design token.
+ */
+:host {
+  container-type: style;
+  --chickadee-elevation: 2;
+}
+
+dialog {
+  background: transparent;
+  border: none;
+  padding: 0;
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+dialog:not([open]) {
+  display: none;
+}
+
+.wrapper {
+  --_max-width: var(--chickadee-modal-max-width, 600px);
+  background:
+    var(--chickadee-color-surface-overlay,
+      light-dark(white, #383838));
+  border-radius:
+    var(--chickadee-border-radius-default, 16px);
+  box-shadow:
+    var(--chickadee-shadow-lg,
+      0 8px 16px 2px rgba(21, 21, 21, 0.25));
+  max-width: var(--_max-width);
+  max-height: 85vh;
+  width: calc(100vw - var(--chickadee-space-2xl, 32px) * 2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+:host([variant="small"]) .wrapper {
+  --_max-width: 400px;
+}
+
+:host([variant="large"]) .wrapper {
+  --_max-width: 900px;
+}
+
+:host([variant="full"]) .wrapper {
+  --_max-width: 100%;
+  max-height: 100vh;
+  height: calc(100vh - var(--chickadee-space-2xl, 32px) * 2);
+  border-radius: 0;
+}
+
+[part="header"] {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--chickadee-space-lg, 16px);
+  padding:
+    var(--chickadee-space-xl, 24px)
+    var(--chickadee-space-xl, 24px)
+    var(--chickadee-space-md, 8px);
+}
+
+.header-text {
+  flex: 1;
+
+  & ::slotted(h1),
+  & ::slotted(h2),
+  & ::slotted(h3),
+  & h2 {
+    font-size: var(--chickadee-font-size-heading-md, 24px);
+    font-weight: var(--chickadee-font-weight-bold, 700);
+    line-height: var(--chickadee-line-height-heading, 1.3);
+    margin: 0;
+  }
+
+  & [name="description"]::slotted(*) {
+    font-size: var(--chickadee-font-size-body-text-sm, 14px);
+    color: light-dark(#4d4d4d, #c7c7c7);
+    margin-block-start: var(--chickadee-space-xs, 4px);
+  }
+}
+
+[part="close"] {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  padding: var(--chickadee-space-xs, 4px);
+  border-radius: var(--chickadee-border-radius-sm, 4px);
+  color: light-dark(#4d4d4d, #c7c7c7);
+  flex-shrink: 0;
+  --chickadee-icon-size: var(--chickadee-size-icon-md, 16px);
+
+  &:hover {
+    background:
+      var(--chickadee-color-interactive-fill-plain-hover,
+        light-dark(rgba(199, 199, 199, 0.25), rgba(199, 199, 199, 0.15)));
+  }
+
+  &:focus-visible {
+    outline:
+      var(--chickadee-border-width-lg, 3px) solid
+      var(--chickadee-color-interactive-primary-default,
+        light-dark(#0066cc, #92c5f9));
+    outline-offset: 2px;
+  }
+}
+
+[part="body"] {
+  flex: 1;
+  overflow-y: auto;
+  padding:
+    var(--chickadee-space-md, 8px)
+    var(--chickadee-space-xl, 24px);
+}
+
+[part="footer"] {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--chickadee-space-md, 8px);
+  padding: var(--chickadee-space-lg, 16px) var(--chickadee-space-xl, 24px);
+}
+
+[part="footer"]:empty {
+  display: none;
+}
