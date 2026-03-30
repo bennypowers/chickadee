@@ -1,0 +1,53 @@
+/**
+ * @cssprop [--chickadee-empty-state-max-width=480px] - Maximum content width. Override to constrain or expand the layout within a container.
+ */
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--chickadee-space-lg, 16px);
+  max-width: var(--chickadee-empty-state-max-width, 480px);
+  margin-inline: auto;
+  padding: var(--chickadee-space-3xl, 48px) var(--chickadee-space-lg, 16px);
+}
+
+:host([variant="sm"]) {
+  padding: var(--chickadee-space-xl, 24px) var(--chickadee-space-lg, 16px);
+  gap: var(--chickadee-space-md, 8px);
+}
+
+[name="icon"]::slotted(*),
+chickadee-icon {
+  --chickadee-icon-size: 48px;
+  color: light-dark(#4d4d4d, #c7c7c7);
+}
+
+:host([variant="sm"]) [name="icon"]::slotted(*),
+:host([variant="sm"]) chickadee-icon {
+  --chickadee-icon-size: 32px;
+}
+
+[name="heading"]::slotted(*) {
+  font-size: var(--chickadee-font-size-heading-md, 24px);
+  font-weight: var(--chickadee-font-weight-bold, 700);
+  line-height: var(--chickadee-line-height-heading, 1.3);
+  margin: 0;
+}
+
+:host([variant="sm"]) [name="heading"]::slotted(*) {
+  font-size: var(--chickadee-font-size-body-text-lg, 18px);
+}
+
+::slotted(:not([slot])) {
+  font-size: var(--chickadee-font-size-body-text-md, 16px);
+  line-height: var(--chickadee-line-height-body-text, 1.5);
+  color: light-dark(#4d4d4d, #c7c7c7);
+}
+
+[name="actions"] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--chickadee-space-md, 8px);
+  justify-content: center;
+}
