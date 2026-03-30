@@ -1,22 +1,87 @@
 font:
   size:
     $type: dimension
+    body-text-xs:
+      $value: 12px
+      $description: >-
+        Extra-small body text (Body Small). Should be used for badge counts,
+        fine print, navigation section headings, and auxiliary labels. It must
+        not be used for primary content. Renders at 12px / 18 (1.5).
     body-text-sm:
       $value: 14px
       $description: >-
-        Small body text size. Should be used for button labels, compact UI text,
-        and secondary content. It must not be used for primary body copy.
+        Small body text (Body default). Should be used for button labels,
+        compact UI text, form field text, and secondary content. It must not
+        be used for primary body copy. Renders at 14px / 21 (1.5).
     body-text-md:
       $value: 16px
       $description: >-
-        Medium body text size. Should be used as the default for body copy and
-        form field text.
+        Medium body text (Body large). Should be used as the default for body
+        copy, form field text, and inline content. Also used for H4-H6
+        headings at medium weight. Renders at 16px / 24 (1.5).
+    body-text-lg:
+      $value: 18px
+      $description: >-
+        Large body text (H3 / SM). Should be used for card headers,
+        description list terms, and tertiary headings. Renders at
+        18px / 23.4 (1.3) when used as a heading.
+    heading-sm:
+      $value: 20px
+      $description: >-
+        Small heading (H2 / MED). Should be used for accordion headers, modal
+        subtitles, and section subheadings. Renders at 20px / 26 (1.3) with
+        medium weight.
+    heading-md:
+      $value: 24px
+      $description: >-
+        Medium heading (H1 / LG). Should be used for page titles, modal
+        titles, empty state headings, and card primary headings. Only one H1
+        heading should be used per page. Renders at 24px / 31.2 (1.3) with
+        bold weight.
+    heading-lg:
+      $value: 28px
+      $description: >-
+        Large heading (Hero / XL). Should be used for hero headings and
+        full-page empty state titles. It must not be used for regular page
+        titles. Renders at 28px / 36.4 (1.3) with medium weight.
+    heading-xl:
+      $value: 36px
+      $description: >-
+        Extra-large heading (Super hero / XXL). Should be used only for
+        full-page empty states, landing cards, and similar prominent
+        locations. It must not be used for page titles. Renders at
+        36px / 46.8 (1.3) with medium weight.
+
+  weight:
+    $type: number
+    regular:
+      $value: "400"
+      $description: >-
+        Regular font weight. Should be used for body text, descriptions, and
+        secondary content. Maps to RH Text Regular.
+    medium:
+      $value: "500"
+      $description: >-
+        Medium font weight. Should be used for labels, navigation items,
+        heading levels H2-H6, and semi-emphasized text. Maps to RH Display
+        Medium.
+    bold:
+      $value: "700"
+      $description: >-
+        Bold font weight. Should be used for H1 page titles, strong emphasis,
+        and active navigation states. Maps to bold weight in the type scale.
 
   line-height:
     $type: number
     body-text:
       $value: "1.5"
       $description: >-
-        Default body text line height. Should be used for all body text to
-        ensure comfortable readability and adequate touch targets when applied
-        to interactive elements.
+        Body text line height. Should be used for all body text sizes
+        (body-text-xs through body-text-md) to ensure comfortable readability
+        and adequate touch targets when applied to interactive elements.
+    heading:
+      $value: "1.3"
+      $description: >-
+        Heading line height. Should be used for all heading sizes
+        (heading-sm through heading-xl) to maintain compact vertical rhythm
+        in title areas.

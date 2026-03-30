@@ -1,11 +1,21 @@
 color:
   $type: color
   green:
+    "10":
+      $value: "#d2f0be"
+      $description: >-
+        Lightest green. Should be used for success status surface tints and
+        alert backgrounds.
     "30":
       $value: "#afdc8f"
       $description: >-
         Light green. Should be used for success status hover states on dark
         themes.
+    "40":
+      $value: "#6ec04c"
+      $description: >-
+        Medium green. Should be used for success status indicators on light
+        themes and active states.
     "70":
       $value: "#204d00"
       $description: >-

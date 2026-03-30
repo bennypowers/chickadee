@@ -1,0 +1,19 @@
+color:
+  $type: color
+  surface:
+    default:
+      $value: "light-dark(white, #151515)"
+      $description: >-
+        Default page-level surface. Used as the base background for layouts
+        and full-page views. White on light themes, near-black on dark themes.
+    raised:
+      $value: "light-dark(white, #1f1f1f)"
+      $description: >-
+        Raised surface for elements with elevation 1, like cards, sidebar
+        navigation, and mastheads. White on light themes, dark gray on dark
+        themes.
+    overlay:
+      $value: "light-dark(white, #383838)"
+      $description: >-
+        Overlay surface for elements with elevation 2+, like modals, menus,
+        and popovers. White on light themes, medium gray on dark themes.

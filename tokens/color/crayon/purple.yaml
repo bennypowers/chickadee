@@ -1,6 +1,11 @@
 color:
   $type: color
   purple:
+    "10":
+      $value: "#e8e2f8"
+      $description: >-
+        Lightest purple. Should be used for info status surface tints and
+        alert backgrounds.
     "20":
       $value: "#d0c5f4"
       $description: >-

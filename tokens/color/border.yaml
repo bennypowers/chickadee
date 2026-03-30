@@ -1,0 +1,8 @@
+color:
+  $type: color
+  border:
+    subtle:
+      $value: "light-dark(#e0e0e0, #383838)"
+      $description: >-
+        Subtle border color for dividers, card borders, and secondary
+        separators. Gray-20 on light themes, gray-70 on dark themes.

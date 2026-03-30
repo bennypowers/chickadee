@@ -16,3 +16,30 @@ size:
       $description: >-
         Large icon size. Should be used for prominent standalone icons and
         status indicators.
+  avatar:
+    sm:
+      $value: 24px
+      $description: >-
+        Small avatar size. Should be used for compact list items and inline
+        mentions.
+    md:
+      $value: 36px
+      $description: >-
+        Medium avatar size. Should be used as the default avatar size for
+        most contexts.
+    lg:
+      $value: 48px
+      $description: >-
+        Large avatar size. Should be used for user profile displays and
+        prominent identity indicators.
+    xl:
+      $value: 64px
+      $description: >-
+        Extra-large avatar size. Should be used for hero profile displays
+        and account settings.
+  badge:
+    sm:
+      $value: 16px
+      $description: >-
+        Small badge size. Should be used as the minimum dimension for
+        notification badge counters.
