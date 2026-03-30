@@ -1,0 +1,16 @@
+<meta itemprop="name" content="Banner">
+<meta itemprop="description" content="All banner variants (info, success, warning, danger, neutral) and the dismissable option.">
+<chickadee-banner>This is an info banner with a message.</chickadee-banner>
+<chickadee-banner variant="success">Operation completed successfully.</chickadee-banner>
+<chickadee-banner variant="warning">Please review your settings.</chickadee-banner>
+<chickadee-banner variant="danger">An error occurred. Please try again.</chickadee-banner>
+<chickadee-banner variant="neutral">System maintenance scheduled.</chickadee-banner>
+<chickadee-banner variant="info" dismissable>This banner can be dismissed.</chickadee-banner>
+<chickadee-banner variant="info">
+  New version available.
+  <a slot="actions" href="#">Update now</a>
+</chickadee-banner>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-banner/chickadee-banner.js';
+</script>
