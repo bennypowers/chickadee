@@ -1,0 +1,77 @@
+/**
+ * @cssprop [--chickadee-banner-background] - Banner background color. Defaults to the `--chickadee-color-surface-status-*` token for the active variant.
+ * @cssprop [--chickadee-banner-color] - Banner text color. Defaults to the base text color.
+ * @cssprop [--chickadee-banner-icon-color] - Icon color. Defaults to the `--chickadee-color-status-*` token for the active variant.
+ */
+:host {
+  --_background: var(--chickadee-banner-background, var(--chickadee-color-surface-status-info, light-dark(#e8e2f8, #1e1340)));
+  --_color: var(--chickadee-banner-color, light-dark(#1f1f1f, white));
+  --_icon-color: var(--chickadee-banner-icon-color, var(--chickadee-color-status-info, light-dark(#3d2785, #d0c5f4)));
+
+  display: block;
+}
+
+:host([variant="info"]) {
+  --_background: var(--chickadee-banner-background, var(--chickadee-color-surface-status-info, light-dark(#e8e2f8, #1e1340)));
+  --_icon-color: var(--chickadee-banner-icon-color, var(--chickadee-color-status-info, light-dark(#3d2785, #d0c5f4)));
+}
+
+:host([variant="success"]) {
+  --_background: var(--chickadee-banner-background, var(--chickadee-color-surface-status-success, light-dark(#d2f0be, #1a3a08)));
+  --_icon-color: var(--chickadee-banner-icon-color, var(--chickadee-color-status-success, light-dark(#6ec04c, #afdc8f)));
+}
+
+:host([variant="warning"]) {
+  --_background: var(--chickadee-banner-background, var(--chickadee-color-surface-status-warning, light-dark(#fff3cd, #3d2e07)));
+  --_icon-color: var(--chickadee-banner-icon-color, var(--chickadee-color-status-warning, light-dark(#dca614, #ffe072)));
+}
+
+:host([variant="danger"]) {
+  --_background: var(--chickadee-banner-background, var(--chickadee-color-surface-status-danger, light-dark(#fbbea8, #49200a)));
+  --_icon-color: var(--chickadee-banner-icon-color, var(--chickadee-color-status-danger, light-dark(#b1380b, #f0561d)));
+}
+
+:host([variant="neutral"]) {
+  --_background: var(--chickadee-banner-background, var(--chickadee-color-surface-status-neutral, light-dark(#f2f2f2, #383838)));
+  --_icon-color: var(--chickadee-banner-icon-color, var(--chickadee-color-status-neutral, light-dark(#4d4d4d, #c7c7c7)));
+}
+
+:host([sticky]) {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+[part="container"] {
+  display: flex;
+  align-items: center;
+  gap: var(--chickadee-space-md, 8px);
+  padding: var(--chickadee-space-md, 8px) var(--chickadee-space-lg, 16px);
+  background: var(--_background);
+  color: var(--_color);
+}
+
+[part="icon"] {
+  display: inline-flex;
+  color: var(--_icon-color);
+  --chickadee-icon-size: var(--chickadee-size-icon-md, 16px);
+}
+
+[part="body"] {
+  flex: 1;
+}
+
+[part="dismiss"] {
+  all: unset;
+  display: inline-flex;
+  cursor: pointer;
+  padding: var(--chickadee-space-xs, 4px);
+  color: inherit;
+  --chickadee-icon-size: var(--chickadee-size-icon-sm, 14px);
+}
+
+::slotted([slot="actions"]) {
+  display: flex;
+  align-items: center;
+  gap: var(--chickadee-space-sm, 6px);
+}
