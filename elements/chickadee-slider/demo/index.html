@@ -1,0 +1,14 @@
+<meta itemprop="name" content="Slider">
+<meta itemprop="description" content="Slider with labels, custom range, step increments, show-value, and disabled state.">
+<chickadee-slider label="Volume" show-value></chickadee-slider>
+<chickadee-slider label="Brightness" value="75" show-value></chickadee-slider>
+<chickadee-slider min="0" max="10" step="1" value="4" show-value>
+  <span slot="label">Rating</span>
+  <span slot="min-label">0</span>
+  <span slot="max-label">10</span>
+</chickadee-slider>
+<chickadee-slider label="Disabled" value="30" disabled show-value></chickadee-slider>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-slider/chickadee-slider.js';
+</script>
