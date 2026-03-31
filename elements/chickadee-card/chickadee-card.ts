@@ -53,14 +53,16 @@ export class ChickadeeCard extends LitElement {
 
   render() {
     return html`
-      <!-- Hero image area. SHOULD contain an img element with descriptive alt text for screen readers. -->
-      <slot name="image" part="image"></slot>
-      <!-- Card header. SHOULD contain a heading element (h2-h6) for the document outline at the appropriate level. -->
-      <slot name="header" part="header"></slot>
-      <!-- Card body content. Accepts block-level elements such as paragraphs, lists, and inline text. -->
-      <slot part="body"></slot>
-      <!-- Card footer. SHOULD contain action buttons or metadata. Interactive elements receive keyboard focus via Tab. -->
-      <slot name="footer" part="footer"></slot>
+      <div id="container">
+        <!-- Hero image area. SHOULD contain an img element with descriptive alt text for screen readers. -->
+        <div id="image" part="image"><slot name="image"></slot></div>
+        <!-- Card header. SHOULD contain a heading element (h2-h6) for the document outline at the appropriate level. -->
+        <div id="header" part="header"><slot name="header"></slot></div>
+        <!-- Card body content. Accepts block-level elements such as paragraphs, lists, and inline text. -->
+        <div id="body" part="body"><slot></slot></div>
+        <!-- Card footer. SHOULD contain action buttons or metadata. Interactive elements receive keyboard focus via Tab. -->
+        <div id="footer" part="footer"><slot name="footer"></slot></div>
+      </div>
       ${this.href ? html`<a href=${this.href} aria-label=${nothing} tabindex="-1"></a>` : nothing}
       ${this.selectable ? html`<div class="select-overlay"
                                     tabindex="0"

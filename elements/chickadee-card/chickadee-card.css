@@ -1,6 +1,6 @@
 /**
  * @cssprop [--chickadee-card-border-radius=var(--chickadee-border-radius-default)] - Card corner radius. Maps to the `--chickadee-border-radius-default` design token.
- * @cssprop [--chickadee-card-padding=var(--chickadee-space-xl)] - Card section padding. Maps to the `--chickadee-space-xl` design token.
+ * @cssprop [--chickadee-card-padding=var(--chickadee-space-xl)] - Card section inline padding. Maps to the `--chickadee-space-xl` design token.
  */
 :host {
   container-type: style;
@@ -57,31 +57,70 @@
       var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
 }
 
-[part="image"] {
-  display: block;
+#container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-  &::slotted(*) {
+/* Image: full-bleed at the top */
+#image {
+  &:not(:has(::slotted(*))) {
+    display: none;
+  }
+
+  & ::slotted(*) {
     display: block;
     width: 100%;
     object-fit: cover;
   }
 }
 
-[part="header"] {
-  padding: var(--_padding);
-  padding-block-end: 0;
-  font-size: var(--chickadee-font-size-body-text-lg, 18px);
-  font-weight: var(--chickadee-font-weight-bold, 700);
-  line-height: var(--chickadee-line-height-heading, 1.3);
+/* Header, body, footer use margin-inline for horizontal spacing */
+#header,
+#body,
+#footer {
+  margin-inline: var(--_padding);
 }
 
-[part="body"] {
-  padding: var(--_padding);
+/* Header */
+#header {
+  margin-block-start: var(--_padding);
+
+  &:not(:has(::slotted(*))) {
+    display: none;
+  }
+
+  & ::slotted(:is(h1, h2, h3, h4, h5, h6)) {
+    font-size: var(--chickadee-font-size-body-text-lg, 18px);
+    font-weight: var(--chickadee-font-weight-bold, 700);
+    line-height: var(--chickadee-line-height-heading, 1.3);
+    margin: 0;
+  }
 }
 
-[part="footer"] {
-  padding: var(--_padding);
-  padding-block-start: 0;
+/* Body */
+#body {
+  margin-block: var(--chickadee-space-lg, 16px);
+
+  & ::slotted(:first-child) {
+    margin-block-start: 0;
+  }
+
+  & ::slotted(:last-child) {
+    margin-block-end: 0;
+  }
+}
+
+/* Footer: auto top margin pushes it to the bottom */
+#footer {
+  display: flex;
+  gap: var(--chickadee-space-md, 8px);
+  margin-block: auto var(--_padding);
+
+  &:not(:has(::slotted(*))) {
+    display: none;
+  }
 }
 
 a {
