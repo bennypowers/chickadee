@@ -43,10 +43,19 @@
 
 :host([selectable]) {
   cursor: pointer;
+  outline: none;
 
   &:hover {
     box-shadow:
       var(--chickadee-shadow-lg, 0 8px 16px 2px rgba(21, 21, 21, 0.25));
+  }
+
+  &:focus-visible {
+    outline:
+      var(--chickadee-border-width-lg, 3px) solid
+      var(--chickadee-color-interactive-primary-default,
+        light-dark(#0066cc, #92c5f9));
+    outline-offset: 2px;
   }
 }
 
@@ -57,7 +66,53 @@
       var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
 }
 
+/* Visible checkbox indicator in the top-right corner */
+:host([selectable]) #container::before {
+  content: '';
+  position: absolute;
+  inset-block-start: var(--_padding);
+  inset-inline-end: var(--_padding);
+  width: 18px;
+  height: 18px;
+  border: var(--chickadee-border-width-md, 2px) solid
+    var(--chickadee-color-border-subtle, light-dark(#e0e0e0, #383838));
+  border-radius: var(--chickadee-border-radius-sm, 4px);
+  background: transparent;
+  z-index: 1;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+:host([selectable]:hover) #container::before {
+  border-color:
+    var(--chickadee-color-interactive-primary-default,
+      light-dark(#0066cc, #92c5f9));
+}
+
+:host([selected]) #container::before {
+  background:
+    var(--chickadee-color-interactive-primary-default,
+      light-dark(#0066cc, #92c5f9));
+  border-color:
+    var(--chickadee-color-interactive-primary-default,
+      light-dark(#0066cc, #92c5f9));
+}
+
+/* Checkmark inside the checkbox when selected */
+:host([selected]) #container::after {
+  content: '';
+  position: absolute;
+  inset-block-start: calc(var(--_padding) + 3px);
+  inset-inline-end: calc(var(--_padding) + 6px);
+  width: 6px;
+  height: 10px;
+  border: solid var(--chickadee-color-text-primary-inverse, light-dark(white, #1f1f1f));
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  z-index: 2;
+}
+
 #container {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -127,17 +182,4 @@ a {
   position: absolute;
   inset: 0;
   z-index: 0;
-}
-
-.select-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  border-radius: inherit;
-
-  &:focus-visible {
-    outline: var(--chickadee-border-width-lg, 3px) solid
-      var(--chickadee-color-interactive-primary-default, light-dark(#0066cc, #92c5f9));
-    outline-offset: 2px;
-  }
 }

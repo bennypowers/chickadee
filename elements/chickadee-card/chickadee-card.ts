@@ -64,24 +64,41 @@ export class ChickadeeCard extends LitElement {
         <div id="footer" part="footer"><slot name="footer"></slot></div>
       </div>
       ${this.href ? html`<a href=${this.href} aria-label=${nothing} tabindex="-1"></a>` : nothing}
-      ${this.selectable ? html`<div class="select-overlay"
-                                    tabindex="0"
-                                    role="button"
-                                    aria-pressed=${String(this.selected)}
-                                    @click=${this.#onSelect}
-                                    @keydown=${this.#onKeydown}></div>` : nothing}
     `;
   }
 
-  #onSelect() {
+  #internals = this.attachInternals();
+
+  override connectedCallback() {
+    super.connectedCallback();
+    if (this.selectable) {
+      this.addEventListener('click', this.#onClick);
+      this.addEventListener('keydown', this.#onKeydown);
+    }
+  }
+
+  override willUpdate() {
+    if (this.selectable) {
+      this.#internals.role = 'checkbox';
+      this.#internals.ariaChecked = String(this.selected);
+      this.tabIndex = 0;
+    } else {
+      this.#internals.role = null;
+      this.#internals.ariaChecked = null;
+    }
+  }
+
+  #onClick() {
+    if (!this.selectable) return;
     this.selected = !this.selected;
     this.dispatchEvent(new Event('select', { bubbles: true }));
   }
 
   #onKeydown(e: KeyboardEvent) {
+    if (!this.selectable) return;
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      this.#onSelect();
+      this.#onClick();
     }
   }
 }
