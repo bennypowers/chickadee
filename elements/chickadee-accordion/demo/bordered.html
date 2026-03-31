@@ -1,0 +1,23 @@
+<meta itemprop="name"
+      content="Accordion">
+<meta itemprop="description"
+      content="Accordion with collapsible sections, including border.">
+
+<chickadee-accordion bordered>
+  <chickadee-accordion-item expanded>
+    <span slot="header">Item A</span>
+    <p>Bordered accordion style.</p>
+  </chickadee-accordion-item>
+  <chickadee-accordion-item>
+    <span slot="header">Item B</span>
+    <p>Click to expand.</p>
+  </chickadee-accordion-item>
+  <chickadee-accordion-item>
+    <span slot="header">Item C</span>
+    <p>Click to expand.</p>
+  </chickadee-accordion-item>
+</chickadee-accordion>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-accordion/chickadee-accordion.js';
+</script>
