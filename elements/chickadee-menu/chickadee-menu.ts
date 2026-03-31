@@ -30,11 +30,18 @@ export class ChickadeeMenu extends LitElement {
   override updated(changed: Map<string, unknown>) {
     if (changed.has('open')) {
       if (this.open) {
+        this.#positionPopover();
         this._popover.showPopover();
       } else {
         try { this._popover.hidePopover(); } catch { /* already hidden */ }
       }
     }
+  }
+
+  #positionPopover() {
+    const rect = this.getBoundingClientRect();
+    this._popover.style.top = `${rect.bottom}px`;
+    this._popover.style.left = `${rect.left}px`;
   }
 
   render() {
