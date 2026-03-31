@@ -1,0 +1,16 @@
+<meta itemprop="name" content="Small">
+<meta itemprop="description" content="Small variant modal for confirmations.">
+<chickadee-button onclick="document.querySelector('#small-modal').open = true">Small modal</chickadee-button>
+
+<chickadee-modal id="small-modal" variant="small" heading="Are you sure?">
+  <p>This action cannot be undone.</p>
+  <chickadee-button slot="footer" variant="secondary"
+    onclick="this.closest('chickadee-modal').open = false">Cancel</chickadee-button>
+  <chickadee-button slot="footer" danger
+    onclick="this.closest('chickadee-modal').open = false">Delete</chickadee-button>
+</chickadee-modal>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-modal/chickadee-modal.js';
+  import '@chickadee/elements/chickadee-button/chickadee-button.js';
+</script>

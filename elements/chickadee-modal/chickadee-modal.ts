@@ -49,9 +49,12 @@ export class ChickadeeModal extends LitElement {
 
   @query('dialog') private _dialog!: HTMLDialogElement;
 
+  #previousFocus: HTMLElement | null = null;
+
   override updated(changed: Map<string, unknown>) {
     if (changed.has('open')) {
       if (this.open) {
+        this.#previousFocus = document.activeElement as HTMLElement;
         this._dialog.showModal();
         this.dispatchEvent(new Event('open', { bubbles: true }));
       } else if (this._dialog.open) {
@@ -96,11 +99,16 @@ export class ChickadeeModal extends LitElement {
 
   #close() {
     this.open = false;
+    this.#previousFocus?.focus();
+    this.#previousFocus = null;
     this.dispatchEvent(new Event('close', { bubbles: true }));
   }
 
   #onDialogClose() {
+    if (!this.open) return;
     this.open = false;
+    this.#previousFocus?.focus();
+    this.#previousFocus = null;
     this.dispatchEvent(new Event('close', { bubbles: true }));
   }
 

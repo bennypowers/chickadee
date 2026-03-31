@@ -1,4 +1,4 @@
-<meta itemprop="description" content="Modal variants, sizes, and footer actions.">
+<meta itemprop="description" content="Basic modal with heading, body, and footer buttons.">
 <chickadee-button onclick="document.querySelector('#demo-modal').open = true">Open modal</chickadee-button>
 
 <chickadee-modal id="demo-modal" heading="Modal title">
@@ -7,16 +7,6 @@
     onclick="this.closest('chickadee-modal').open = false">Cancel</chickadee-button>
   <chickadee-button slot="footer"
     onclick="this.closest('chickadee-modal').open = false">Confirm</chickadee-button>
-</chickadee-modal>
-
-<chickadee-button onclick="document.querySelector('#small-modal').open = true">Small modal</chickadee-button>
-
-<chickadee-modal id="small-modal" variant="small" heading="Are you sure?">
-  <p>This action cannot be undone.</p>
-  <chickadee-button slot="footer" variant="secondary"
-    onclick="this.closest('chickadee-modal').open = false">Cancel</chickadee-button>
-  <chickadee-button slot="footer" danger
-    onclick="this.closest('chickadee-modal').open = false">Delete</chickadee-button>
 </chickadee-modal>
 
 <script type="module">

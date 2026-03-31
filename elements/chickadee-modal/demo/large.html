@@ -1,0 +1,17 @@
+<meta itemprop="name" content="Large">
+<meta itemprop="description" content="Large variant modal for detailed content.">
+<chickadee-button onclick="document.querySelector('#large-modal').open = true">Large modal</chickadee-button>
+
+<chickadee-modal id="large-modal" variant="large" heading="Terms of service">
+  <p>Please review the following terms before proceeding. This modal uses the large variant for additional content width.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+  <chickadee-button slot="footer" variant="secondary"
+    onclick="this.closest('chickadee-modal').open = false">Decline</chickadee-button>
+  <chickadee-button slot="footer"
+    onclick="this.closest('chickadee-modal').open = false">Accept</chickadee-button>
+</chickadee-modal>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-modal/chickadee-modal.js';
+  import '@chickadee/elements/chickadee-button/chickadee-button.js';
+</script>
