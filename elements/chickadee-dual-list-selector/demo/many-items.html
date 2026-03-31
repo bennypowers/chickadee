@@ -1,0 +1,14 @@
+<meta itemprop="name" content="Many items">
+<meta itemprop="description" content="Dual list with many items showing scroll and filter behavior.">
+
+<chickadee-dual-list-selector id="demo-many"
+  available-label="Available servers"
+  selected-label="Assigned servers">
+</chickadee-dual-list-selector>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-dual-list-selector/chickadee-dual-list-selector.js';
+  const dls = document.querySelector('#demo-many');
+  dls.available = Array.from({length: 20}, (_, i) => `Server ${String(i + 1).padStart(2, '0')}`);
+  dls.selected = ['Server 03', 'Server 07'];
+</script>

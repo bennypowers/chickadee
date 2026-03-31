@@ -1,0 +1,14 @@
+<meta itemprop="name" content="Pre-selected">
+<meta itemprop="description" content="Dual list with items pre-distributed between available and selected panes.">
+
+<chickadee-dual-list-selector id="demo-pre"
+  available-label="Available features"
+  selected-label="Enabled features">
+</chickadee-dual-list-selector>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-dual-list-selector/chickadee-dual-list-selector.js';
+  const dls = document.querySelector('#demo-pre');
+  dls.available = ['Dark mode', 'Notifications', 'Analytics', 'API access'];
+  dls.selected = ['Single sign-on', 'Two-factor auth'];
+</script>

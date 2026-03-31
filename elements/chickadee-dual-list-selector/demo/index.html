@@ -1,23 +1,11 @@
 <meta itemprop="name" content="Dual list selector">
-<meta itemprop="description" content="Two-pane list transfer with search filtering and multi-select.">
+<meta itemprop="description" content="Basic two-pane list transfer with string items.">
 
-<chickadee-dual-list-selector id="demo-dls"
-  available-label="Available options"
-  selected-label="Chosen options">
-</chickadee-dual-list-selector>
+<chickadee-dual-list-selector id="demo-dls"></chickadee-dual-list-selector>
 
 <script type="module">
   import '@chickadee/elements/chickadee-dual-list-selector/chickadee-dual-list-selector.js';
-
-  const dls = document.querySelector('#demo-dls');
-  dls.available = [
-    'Item text here',
-    'Item text here 2',
-    'Item text here 3',
-    'Item text here 4',
-    'Item text here 5',
-    'Item text here 6',
-    'Item text here 7',
-    'Item text here 8',
+  document.querySelector('#demo-dls').available = [
+    'Option A', 'Option B', 'Option C', 'Option D',
   ];
 </script>

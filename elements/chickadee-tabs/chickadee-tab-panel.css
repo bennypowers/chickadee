@@ -4,8 +4,8 @@
 :host {
   display: block;
   padding: var(--chickadee-tab-panel-padding, var(--chickadee-space-lg, 16px));
+}
 
-  &([hidden]) {
-    display: none;
-  }
+:host([hidden]) {
+  display: none;
 }
