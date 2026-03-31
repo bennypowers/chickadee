@@ -1,11 +1,11 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import type { ChickadeeAccordionItem } from './chickadee-accordion-item.js';
+import { ChickadeeAccordionItem } from './chickadee-accordion-item.js';
+
+export { ChickadeeAccordionItem };
 
 import styles from './chickadee-accordion.css' with { type: 'css' };
-
-export { ChickadeeAccordionItem } from './chickadee-accordion-item.js';
 
 /**
  * An accordion provides a way for authors to organize content into

@@ -1,0 +1,83 @@
+<meta itemprop="name"
+      content="Accordion">
+<meta itemprop="description"
+      content="Accordion with collapsible sections, including bordered and multi-expand variants.">
+
+<div class="accordion-variants">
+  <chickadee-accordion>
+    <chickadee-accordion-item expanded>
+      <span slot="header">Section one</span>
+      <p>Content for section one. This section is expanded by default.</p>
+    </chickadee-accordion-item>
+    <chickadee-accordion-item>
+      <span slot="header">Section two</span>
+      <p>Content for section two.</p>
+    </chickadee-accordion-item>
+    <chickadee-accordion-item>
+      <span slot="header">Section three</span>
+      <p>Content for section three.</p>
+    </chickadee-accordion-item>
+    <chickadee-accordion-item disabled>
+      <span slot="header">Disabled section</span>
+      <p>This section cannot be opened.</p>
+    </chickadee-accordion-item>
+  </chickadee-accordion>
+
+  <chickadee-accordion bordered>
+    <chickadee-accordion-item expanded>
+      <span slot="header">Item A</span>
+      <p>Bordered.</p>
+    </chickadee-accordion-item>
+    <chickadee-accordion-item>
+      <span slot="header">Item B</span>
+      <p>Click to expand.</p>
+    </chickadee-accordion-item>
+    <chickadee-accordion-item>
+      <span slot="header">Item C</span>
+      <p>Click to expand.</p>
+    </chickadee-accordion-item>
+  </chickadee-accordion>
+
+  <chickadee-accordion multiple>
+    <chickadee-accordion-item expanded>
+      <span slot="header">Item A</span>
+      <p>Multiple items can be open at once.</p>
+    </chickadee-accordion-item>
+    <chickadee-accordion-item expanded>
+      <span slot="header">Item B</span>
+      <p>This one is also open.</p>
+    </chickadee-accordion-item>
+    <chickadee-accordion-item>
+      <span slot="header">Item C</span>
+      <p>Click to expand.</p>
+    </chickadee-accordion-item>
+  </chickadee-accordion>
+
+  <chickadee-accordion bordered
+                       multiple>
+    <chickadee-accordion-item expanded>
+      <span slot="header">Item A</span>
+      <p>Multiple items can be open at once.</p>
+    </chickadee-accordion-item>
+    <chickadee-accordion-item expanded>
+      <span slot="header">Item B</span>
+      <p>This one is also open.</p>
+    </chickadee-accordion-item>
+    <chickadee-accordion-item>
+      <span slot="header">Item C</span>
+      <p>Click to expand.</p>
+    </chickadee-accordion-item>
+  </chickadee-accordion>
+</div>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-accordion/chickadee-accordion.js';
+</script>
+
+<style>
+  .accordion-variants {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--chickadee-space-lg, 16px);
+  }
+</style>
