@@ -1,0 +1,11 @@
+<meta itemprop="name" content="Single file with size limit">
+<meta itemprop="description" content="Single file upload with a 10 MB size limit.">
+
+<chickadee-file-upload accept=".csv" max-size="10485760">
+  <span slot="heading">Upload a CSV file</span>
+  <span slot="description">Maximum file size: 10 MB</span>
+</chickadee-file-upload>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-file-upload/chickadee-file-upload.js';
+</script>

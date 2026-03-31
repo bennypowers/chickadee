@@ -28,6 +28,7 @@ import styles from './chickadee-file-upload.css' with { type: 'css' };
  * @csspart file-name - The file name text, truncated with ellipsis on overflow.
  * @csspart file-size - The formatted file size label.
  * @csspart file-remove - Remove button for each file. Focus ring uses `--chickadee-color-interactive-primary-default`.
+ * @csspart file-error - Error message shown below a file that exceeds the `max-size` limit. Uses `--chickadee-color-text-status-danger` color.
  *
  * @fires {CustomEvent} file-select - Fired when files are added via drag-and-drop or the browse button. Detail: `{ files: FileList }`.
  * @fires {CustomEvent} file-remove - Fired when a file is removed from the list. Detail: `{ file: File }`.
@@ -90,12 +91,14 @@ export class ChickadeeFileUpload extends LitElement {
       ${this._files.length > 0 ? html`
         <ul part="file-list">
           ${this._files.map((file, i) => html`
-            <li part="file-item">
+            <li part="file-item" class=${file.size > (this.maxSize ?? Infinity) ? 'error' : ''}>
               <span part="file-name">${file.name}</span>
               <span part="file-size">${this.#formatSize(file.size)}</span>
               <button part="file-remove" aria-label="Remove ${file.name}" @click=${() => this.#removeFile(i)}>
                 <chickadee-icon icon="close"></chickadee-icon>
               </button>
+              ${file.size > (this.maxSize ?? Infinity) ? html`
+                <span part="file-error">Exceeds ${this.#formatSize(this.maxSize!)} limit</span>` : nothing}
             </li>`)}
         </ul>` : nothing}
     `;

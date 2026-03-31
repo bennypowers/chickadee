@@ -67,6 +67,7 @@ input[type="file"] {
 [part="file-item"] {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: var(--chickadee-space-md, 8px);
   padding:
     var(--chickadee-space-sm, 6px)
@@ -76,6 +77,17 @@ input[type="file"] {
       light-dark(#f2f2f2, #383838));
   border-radius: var(--chickadee-border-radius-sm, 4px);
   font-size: var(--chickadee-font-size-body-text-sm, 14px);
+
+  &.error {
+    box-shadow: inset 0 0 0 1px var(--chickadee-color-status-danger, light-dark(#b1380b, #f0561d));
+    background: var(--chickadee-color-surface-status-danger, light-dark(#fbbea8, #49200a));
+  }
+}
+
+[part="file-error"] {
+  color: var(--chickadee-color-text-status-danger, light-dark(#b1380b, #f89b78));
+  font-size: var(--chickadee-font-size-body-text-xs, 12px);
+  flex-basis: 100%;
 }
 
 [part="file-name"] {
