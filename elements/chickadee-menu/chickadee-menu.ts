@@ -46,7 +46,7 @@ export class ChickadeeMenu extends LitElement {
 
   render() {
     return html`
-      <div popover="manual"
+      <div popover="auto"
            role="menu"
            part="menu"
            @toggle=${this.#onToggle}
@@ -78,7 +78,6 @@ export class ChickadeeMenu extends LitElement {
     else if (e.key === 'ArrowUp') next = (current - 1 + items.length) % items.length;
     else if (e.key === 'Home') next = 0;
     else if (e.key === 'End') next = items.length - 1;
-    else if (e.key === 'Escape') { this.open = false; return; }
     else return;
     e.preventDefault();
     items[next]?.focus();

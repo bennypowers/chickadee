@@ -1,0 +1,24 @@
+<meta itemprop="name" content="Groups">
+<meta itemprop="description" content="Menu with labeled groups and separators.">
+
+<chickadee-button onclick="document.querySelector('#groups-menu').open = !document.querySelector('#groups-menu').open">Open menu</chickadee-button>
+
+<chickadee-menu id="groups-menu">
+  <chickadee-menu-group label="File">
+    <chickadee-menu-item>New</chickadee-menu-item>
+    <chickadee-menu-item>Open</chickadee-menu-item>
+    <chickadee-menu-item>Save</chickadee-menu-item>
+  </chickadee-menu-group>
+  <chickadee-menu-group label="Edit">
+    <chickadee-menu-item>Undo</chickadee-menu-item>
+    <chickadee-menu-item>Redo</chickadee-menu-item>
+    <chickadee-menu-item>Cut</chickadee-menu-item>
+    <chickadee-menu-item>Copy</chickadee-menu-item>
+    <chickadee-menu-item>Paste</chickadee-menu-item>
+  </chickadee-menu-group>
+</chickadee-menu>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-menu/chickadee-menu.js';
+  import '@chickadee/elements/chickadee-button/chickadee-button.js';
+</script>
