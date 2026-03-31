@@ -55,3 +55,18 @@
   cursor: not-allowed;
   pointer-events: none;
 }
+
+@container style(--_chickadee-tabs-boxed: 1) {
+  :host {
+    border-radius: var(--chickadee-border-radius-default, 16px);
+  }
+
+  :host([selected]) {
+    background: var(--chickadee-color-surface-default, light-dark(white, #151515));
+    box-shadow: 0 1px 2px light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+
+    &::after {
+      display: none;
+    }
+  }
+}

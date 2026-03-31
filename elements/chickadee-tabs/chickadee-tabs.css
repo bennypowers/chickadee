@@ -4,6 +4,7 @@
 :host {
   --_border-color: var(--chickadee-tabs-border-color, var(--chickadee-color-border-subtle, light-dark(#e0e0e0, #383838)));
   display: block;
+  container-type: normal;
 }
 
 :host([orientation="vertical"]) {
@@ -16,11 +17,16 @@
   }
 }
 
-:host([variant="boxed"]) [part="tablist"] {
-  box-shadow: inset 0 0 0 1px var(--_border-color);
-  border-radius: var(--chickadee-border-radius-sm, 4px);
-  padding: 2px;
-  gap: 2px;
+:host([variant="boxed"]) {
+  --_chickadee-tabs-boxed: 1;
+
+  & [part="tablist"] {
+    background: var(--chickadee-color-surface-status-neutral, light-dark(#f2f2f2, #383838));
+    border-radius: var(--chickadee-border-radius-default, 16px);
+    padding: var(--chickadee-space-xs, 4px);
+    gap: var(--chickadee-space-xs, 4px);
+    box-shadow: none;
+  }
 }
 
 [part="tablist"] {

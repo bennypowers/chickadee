@@ -1,0 +1,15 @@
+<meta itemprop="name" content="Vertical">
+<meta itemprop="description" content="Tabs in vertical orientation with a column layout.">
+
+<chickadee-tabs orientation="vertical">
+  <chickadee-tab slot="tab" selected panel="tab-a">Tab A</chickadee-tab>
+  <chickadee-tab slot="tab" panel="tab-b">Tab B</chickadee-tab>
+  <chickadee-tab slot="tab" panel="tab-c">Tab C</chickadee-tab>
+  <chickadee-tab-panel name="tab-a"><p>Content A.</p></chickadee-tab-panel>
+  <chickadee-tab-panel name="tab-b" hidden><p>Content B.</p></chickadee-tab-panel>
+  <chickadee-tab-panel name="tab-c" hidden><p>Content C.</p></chickadee-tab-panel>
+</chickadee-tabs>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-tabs/chickadee-tabs.js';
+</script>
