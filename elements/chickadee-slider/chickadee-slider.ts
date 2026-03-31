@@ -90,6 +90,7 @@ export class ChickadeeSlider extends LitElement {
                min=${this.min}
                max=${this.max}
                step=${this.step}
+               list=${this.showTicks ? 'ticks' : nothing}
                ?disabled=${this.disabled}
                aria-label=${this.label ?? nothing}
                @input=${this.#onInput}
@@ -97,6 +98,11 @@ export class ChickadeeSlider extends LitElement {
         <!-- Label at the maximum end of the slider range. -->
         <slot name="max-label"></slot>
       </div>
+      ${this.showTicks ? html`
+        <datalist id="ticks">
+          ${Array.from({length: Math.floor((this.max - this.min) / this.step) + 1}, (_, i) =>
+            html`<option value=${this.min + i * this.step}></option>`)}
+        </datalist>` : nothing}
     `;
   }
 
