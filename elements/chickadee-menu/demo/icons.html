@@ -1,0 +1,16 @@
+<meta itemprop="name" content="Icons">
+<meta itemprop="description" content="Menu items with leading icons and descriptions.">
+
+<chickadee-button onclick="document.querySelector('#icons-menu').open = !document.querySelector('#icons-menu').open">Open menu</chickadee-button>
+
+<chickadee-menu id="icons-menu">
+  <chickadee-menu-item icon="add-circle" description="Create a new project">New project</chickadee-menu-item>
+  <chickadee-menu-item icon="info" description="View project details">Details</chickadee-menu-item>
+  <chickadee-menu-item icon="notification-bell" description="Configure alert preferences">Notifications</chickadee-menu-item>
+  <chickadee-menu-item icon="check-circle-fill" selected>Selected item</chickadee-menu-item>
+</chickadee-menu>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-menu/chickadee-menu.js';
+  import '@chickadee/elements/chickadee-button/chickadee-button.js';
+</script>

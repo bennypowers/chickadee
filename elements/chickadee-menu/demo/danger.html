@@ -1,0 +1,19 @@
+<meta itemprop="name" content="Danger">
+<meta itemprop="description" content="Menu with danger items and disabled items.">
+
+<chickadee-button onclick="document.querySelector('#danger-menu').open = !document.querySelector('#danger-menu').open">Open menu</chickadee-button>
+
+<chickadee-menu id="danger-menu">
+  <chickadee-menu-item>Edit</chickadee-menu-item>
+  <chickadee-menu-item disabled>Move (disabled)</chickadee-menu-item>
+  <chickadee-menu-item disabled>Rename (disabled)</chickadee-menu-item>
+  <chickadee-menu-group label="Destructive">
+    <chickadee-menu-item danger>Remove from project</chickadee-menu-item>
+    <chickadee-menu-item danger>Delete permanently</chickadee-menu-item>
+  </chickadee-menu-group>
+</chickadee-menu>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-menu/chickadee-menu.js';
+  import '@chickadee/elements/chickadee-button/chickadee-button.js';
+</script>
