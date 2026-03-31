@@ -17,6 +17,7 @@
 
 :host([collapsed]) {
   --_width: 64px;
+  --_chickadee-nav-collapsed: 1;
 }
 
 nav {

@@ -76,3 +76,18 @@
 :host(:not([expanded])) [part="subnav"] {
   display: none;
 }
+
+@container style(--_chickadee-nav-collapsed: 1) {
+  [part="text"] {
+    display: none;
+  }
+
+  [part="expand-icon"] {
+    display: none;
+  }
+
+  [part="link"] {
+    justify-content: center;
+    padding-inline: var(--chickadee-space-sm, 6px);
+  }
+}

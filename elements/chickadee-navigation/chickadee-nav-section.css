@@ -46,3 +46,9 @@
 :host(:not([expanded])) [part="items"] {
   display: none;
 }
+
+@container style(--_chickadee-nav-collapsed: 1) {
+  [part="heading"] {
+    display: none;
+  }
+}
