@@ -1,0 +1,15 @@
+<meta itemprop="name" content="Boxed">
+<meta itemprop="description" content="Boxed variant with filled background on selected tabs instead of an underline indicator.">
+
+<chickadee-tabs variant="boxed">
+  <chickadee-tab slot="tab" selected panel="first">First</chickadee-tab>
+  <chickadee-tab slot="tab" panel="second">Second</chickadee-tab>
+  <chickadee-tab slot="tab" panel="third">Third</chickadee-tab>
+  <chickadee-tab-panel name="first"><p>First panel content.</p></chickadee-tab-panel>
+  <chickadee-tab-panel name="second" hidden><p>Second panel content.</p></chickadee-tab-panel>
+  <chickadee-tab-panel name="third" hidden><p>Third panel content.</p></chickadee-tab-panel>
+</chickadee-tabs>
+
+<script type="module">
+  import '@chickadee/elements/chickadee-tabs/chickadee-tabs.js';
+</script>

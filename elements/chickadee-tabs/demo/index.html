@@ -1,25 +1,13 @@
 <meta itemprop="name" content="Tabs">
-<meta itemprop="description" content="Tabbed interface with horizontal and vertical orientations, including disabled tabs.">
+<meta itemprop="description" content="Basic horizontal tabbed interface.">
 
 <chickadee-tabs>
   <chickadee-tab slot="tab" selected panel="overview">Overview</chickadee-tab>
   <chickadee-tab slot="tab" panel="details">Details</chickadee-tab>
   <chickadee-tab slot="tab" panel="settings">Settings</chickadee-tab>
-  <chickadee-tab slot="tab" panel="disabled" disabled>Disabled</chickadee-tab>
   <chickadee-tab-panel name="overview"><p>Overview content goes here.</p></chickadee-tab-panel>
   <chickadee-tab-panel name="details" hidden><p>Detailed information.</p></chickadee-tab-panel>
   <chickadee-tab-panel name="settings" hidden><p>Settings panel content.</p></chickadee-tab-panel>
-  <chickadee-tab-panel name="disabled" hidden><p>Disabled panel content.</p></chickadee-tab-panel>
-</chickadee-tabs>
-
-<h3>Vertical</h3>
-<chickadee-tabs orientation="vertical">
-  <chickadee-tab slot="tab" selected panel="tab-a">Tab A</chickadee-tab>
-  <chickadee-tab slot="tab" panel="tab-b">Tab B</chickadee-tab>
-  <chickadee-tab slot="tab" panel="tab-c">Tab C</chickadee-tab>
-  <chickadee-tab-panel name="tab-a"><p>Content A.</p></chickadee-tab-panel>
-  <chickadee-tab-panel name="tab-b" hidden><p>Content B.</p></chickadee-tab-panel>
-  <chickadee-tab-panel name="tab-c" hidden><p>Content C.</p></chickadee-tab-panel>
 </chickadee-tabs>
 
 <script type="module">
